@@ -29,38 +29,95 @@ export default function BlogPage() {
   }, []);
 
   return (
-    <div>
-      <section className="bg-gradient-to-br from-[var(--color-primary-dark)] to-[var(--color-primary)] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-4">{t("blog.title")}</h1>
-          <p className="text-green-100 text-lg max-w-2xl">{t("blog.subtitle")}</p>
+    <div className="bg-[var(--color-warm)]">
+      {/* Hero */}
+      <section className="relative min-h-[45vh] flex items-end overflow-hidden pt-16">
+        <Image
+          src="/images/village-placeholder.webp"
+          alt="Nan Stories"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-amber-900/10 mix-blend-multiply" />
+
+        <div className="relative max-w-6xl mx-auto px-6 pb-14 w-full">
+          <p className="text-amber-200/90 text-sm tracking-[0.3em] uppercase mb-3 font-medium">
+            Stories
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 max-w-2xl">
+            {t("blog.title")}
+          </h1>
+          <p className="text-white/80 text-lg max-w-xl leading-relaxed">
+            {t("blog.subtitle")}
+          </p>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      {/* Blog Grid */}
+      <div className="max-w-6xl mx-auto px-6 py-20">
         {posts.length === 0 ? (
-          <p className="text-center text-gray-500 py-12">{t("blog.empty")}</p>
+          <p className="text-center text-[var(--color-text-muted)] py-12">{t("blog.empty")}</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post) => (
-              <Link key={post.id} href={`/blog/${post.slug}`} className="group">
-                <article className="bg-white rounded-xl shadow-sm border overflow-hidden hover:shadow-md transition-shadow h-full flex flex-col">
-                  <div className="relative h-48 bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {posts.map((post, i) => (
+              <Link
+                key={post.id}
+                href={`/blog/${post.slug}`}
+                className={`group ${i === 0 ? "md:col-span-2 md:row-span-2" : ""}`}
+              >
+                <article className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
+                  <div className={`relative overflow-hidden ${i === 0 ? "h-64 md:h-80" : "h-44"}`}>
                     {post.coverImage ? (
-                      <Image src={post.coverImage} alt={localizedField(post, "title")} fill className="object-cover" />
+                      <Image
+                        src={post.coverImage}
+                        alt={localizedField(post, "title")}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
                     ) : (
-                      <span className="text-5xl">📝</span>
+                      <Image
+                        src="/images/village-placeholder.webp"
+                        alt={localizedField(post, "title")}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
                     )}
                   </div>
                   <div className="p-6 flex-1 flex flex-col">
-                    <span className="text-xs font-medium text-[var(--color-primary)] uppercase tracking-wide">{post.category}</span>
-                    <h2 className="font-bold text-xl mt-1 mb-2 group-hover:text-[var(--color-primary)] transition-colors">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="text-[var(--color-accent)] text-xs font-medium tracking-wider uppercase">
+                        {post.category}
+                      </span>
+                      <span className="text-gray-300">|</span>
+                      <time className="text-[var(--color-text-muted)] text-xs">
+                        {new Date(post.createdAt).toLocaleDateString("en-US", {
+                          month: "short",
+                          day: "numeric",
+                          year: "numeric",
+                        })}
+                      </time>
+                    </div>
+                    <h2
+                      className={`font-bold group-hover:text-[var(--color-primary)] transition-colors leading-snug ${
+                        i === 0 ? "text-2xl mb-3" : "text-lg mb-2"
+                      }`}
+                    >
                       {localizedField(post, "title")}
                     </h2>
-                    <p className="text-gray-600 text-sm flex-1">{localizedField(post, "excerpt")}</p>
-                    <div className="flex items-center justify-between mt-4 pt-4 border-t text-xs text-gray-400">
+                    <p
+                      className={`text-[var(--color-text-muted)] flex-1 ${
+                        i === 0 ? "text-base line-clamp-3" : "text-sm line-clamp-2"
+                      }`}
+                    >
+                      {localizedField(post, "excerpt")}
+                    </p>
+                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100 text-xs text-[var(--color-text-muted)]">
                       <span>{t("blog.by")} {post.author.name}</span>
-                      <time>{new Date(post.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</time>
+                      <span className="text-[var(--color-primary)] font-medium group-hover:underline underline-offset-4">
+                        Read more &rarr;
+                      </span>
                     </div>
                   </div>
                 </article>

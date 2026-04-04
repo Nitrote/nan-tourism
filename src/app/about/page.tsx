@@ -1,58 +1,118 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslation } from "@/lib/useTranslation";
 
 export default function AboutPage() {
   const { t } = useTranslation();
 
   return (
-    <div>
-      <section className="bg-gradient-to-br from-[var(--color-primary-dark)] to-[var(--color-primary)] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-4">{t("about.title")}</h1>
-          <p className="text-green-100 text-lg max-w-2xl">{t("about.subtitle")}</p>
+    <div className="bg-[var(--color-warm)]">
+      {/* Hero with image background */}
+      <section className="relative min-h-[50vh] flex items-end overflow-hidden pt-16">
+        <Image
+          src="/images/village-placeholder.webp"
+          alt="About Nan Province"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-amber-900/10 mix-blend-multiply" />
+
+        <div className="relative max-w-6xl mx-auto px-6 pb-14 w-full">
+          <p className="text-amber-200/90 text-sm tracking-[0.3em] uppercase mb-3 font-medium">
+            Discover
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 max-w-2xl">
+            {t("about.title")}
+          </h1>
+          <p className="text-white/80 text-lg max-w-xl leading-relaxed">
+            {t("about.subtitle")}
+          </p>
         </div>
       </section>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">{t("about.whyVisit.title")}</h2>
-          <p className="text-gray-700 leading-relaxed mb-4">{t("about.whyVisit.p1")}</p>
-          <p className="text-gray-700 leading-relaxed">{t("about.whyVisit.p2")}</p>
+      {/* Content */}
+      <div className="max-w-4xl mx-auto px-6 py-20">
+        {/* Why Visit */}
+        <section className="mb-16">
+          <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-3">
+            Why Nan
+          </p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">{t("about.whyVisit.title")}</h2>
+          <p className="text-[var(--color-text-muted)] leading-relaxed mb-4 text-lg">
+            {t("about.whyVisit.p1")}
+          </p>
+          <p className="text-[var(--color-text-muted)] leading-relaxed text-lg">
+            {t("about.whyVisit.p2")}
+          </p>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">{t("about.history.title")}</h2>
-          <p className="text-gray-700 leading-relaxed mb-4">{t("about.history.p1")}</p>
-          <p className="text-gray-700 leading-relaxed">{t("about.history.p2")}</p>
+        {/* History */}
+        <section className="mb-16">
+          <p className="text-[var(--color-terracotta)] text-sm tracking-[0.2em] uppercase font-medium mb-3">
+            Heritage
+          </p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">{t("about.history.title")}</h2>
+          <p className="text-[var(--color-text-muted)] leading-relaxed mb-4 text-lg">
+            {t("about.history.p1")}
+          </p>
+          <p className="text-[var(--color-text-muted)] leading-relaxed text-lg">
+            {t("about.history.p2")}
+          </p>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">{t("about.climate.title")}</h2>
+        {/* Climate Cards */}
+        <section className="mb-16">
+          <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-3">
+            Seasons
+          </p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8">{t("about.climate.title")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-green-50 rounded-xl p-6">
-              <h3 className="font-bold mb-2">{t("about.climate.cool")}</h3>
-              <p className="text-gray-700 text-sm">{t("about.climate.cool.desc")}</p>
+            <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center mb-4">
+                <span className="text-lg">🌿</span>
+              </div>
+              <h3 className="font-bold text-lg mb-2">{t("about.climate.cool")}</h3>
+              <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{t("about.climate.cool.desc")}</p>
             </div>
-            <div className="bg-yellow-50 rounded-xl p-6">
-              <h3 className="font-bold mb-2">{t("about.climate.hot")}</h3>
-              <p className="text-gray-700 text-sm">{t("about.climate.hot.desc")}</p>
+            <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center mb-4">
+                <span className="text-lg">☀️</span>
+              </div>
+              <h3 className="font-bold text-lg mb-2">{t("about.climate.hot")}</h3>
+              <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{t("about.climate.hot.desc")}</p>
             </div>
-            <div className="bg-blue-50 rounded-xl p-6">
-              <h3 className="font-bold mb-2">{t("about.climate.rainy")}</h3>
-              <p className="text-gray-700 text-sm">{t("about.climate.rainy.desc")}</p>
+            <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-[var(--color-terracotta)]/10 flex items-center justify-center mb-4">
+                <span className="text-lg">🌧️</span>
+              </div>
+              <h3 className="font-bold text-lg mb-2">{t("about.climate.rainy")}</h3>
+              <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{t("about.climate.rainy.desc")}</p>
             </div>
-            <div className="bg-purple-50 rounded-xl p-6">
-              <h3 className="font-bold mb-2">{t("about.climate.elevation")}</h3>
-              <p className="text-gray-700 text-sm">{t("about.climate.elevation.desc")}</p>
+            <div className="bg-white rounded-2xl p-6 shadow-sm">
+              <div className="w-10 h-10 rounded-full bg-[var(--color-primary-dark)]/10 flex items-center justify-center mb-4">
+                <span className="text-lg">⛰️</span>
+              </div>
+              <h3 className="font-bold text-lg mb-2">{t("about.climate.elevation")}</h3>
+              <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{t("about.climate.elevation.desc")}</p>
             </div>
           </div>
         </section>
 
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4">{t("about.people.title")}</h2>
-          <p className="text-gray-700 leading-relaxed mb-4">{t("about.people.p1")}</p>
-          <p className="text-gray-700 leading-relaxed">{t("about.people.p2")}</p>
+        {/* People & Culture */}
+        <section className="mb-16">
+          <p className="text-[var(--color-terracotta)] text-sm tracking-[0.2em] uppercase font-medium mb-3">
+            Community
+          </p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">{t("about.people.title")}</h2>
+          <p className="text-[var(--color-text-muted)] leading-relaxed mb-4 text-lg">
+            {t("about.people.p1")}
+          </p>
+          <p className="text-[var(--color-text-muted)] leading-relaxed text-lg">
+            {t("about.people.p2")}
+          </p>
         </section>
       </div>
     </div>

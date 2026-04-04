@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslation } from "@/lib/useTranslation";
 
 export default function ToursPage() {
@@ -54,28 +55,66 @@ export default function ToursPage() {
   ];
 
   return (
-    <div>
-      <section className="bg-gradient-to-br from-[var(--color-primary-dark)] to-[var(--color-primary)] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-4">{t("tours.title")}</h1>
-          <p className="text-green-100 text-lg max-w-2xl">{t("tours.subtitle")}</p>
+    <div className="bg-[var(--color-warm)]">
+      {/* Hero */}
+      <section className="relative min-h-[45vh] flex items-end overflow-hidden pt-16">
+        <Image
+          src="/images/village-placeholder.webp"
+          alt="Tours in Nan"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-amber-900/10 mix-blend-multiply" />
+
+        <div className="relative max-w-6xl mx-auto px-6 pb-14 w-full">
+          <p className="text-amber-200/90 text-sm tracking-[0.3em] uppercase mb-3 font-medium">
+            Curated Experiences
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 max-w-2xl">
+            {t("tours.title")}
+          </h1>
+          <p className="text-white/80 text-lg max-w-xl leading-relaxed">
+            {t("tours.subtitle")}
+          </p>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-2xl font-bold mb-8">{t("tours.packages")}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Tour Packages */}
+      <div className="max-w-6xl mx-auto px-6 py-20">
+        <div className="mb-10">
+          <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
+            Packages
+          </p>
+          <h2 className="text-2xl md:text-3xl font-bold">{t("tours.packages")}</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {tourPackages.map((tour) => (
-            <div key={tour.title} className="bg-white border rounded-xl overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="bg-green-50 h-32 flex items-center justify-center text-5xl">{tour.icon}</div>
+            <div
+              key={tour.title}
+              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group"
+            >
+              <div className="bg-gradient-to-br from-[var(--color-warm-dark)] to-[var(--color-warm)] h-36 flex items-center justify-center">
+                <span className="text-5xl group-hover:scale-110 transition-transform duration-300">
+                  {tour.icon}
+                </span>
+              </div>
               <div className="p-6">
-                <h3 className="font-bold text-xl">{tour.title}</h3>
-                <span className="text-sm text-[var(--color-primary)] font-medium">{tour.duration}</span>
-                <p className="text-gray-600 mt-3 text-sm">{tour.description}</p>
-                <ul className="mt-4 space-y-1">
+                <div className="flex items-start justify-between gap-4 mb-3">
+                  <h3 className="font-bold text-xl">{tour.title}</h3>
+                  <span className="text-xs font-medium text-[var(--color-terracotta)] bg-[var(--color-terracotta)]/10 px-3 py-1 rounded-full whitespace-nowrap">
+                    {tour.duration}
+                  </span>
+                </div>
+                <p className="text-[var(--color-text-muted)] text-sm leading-relaxed mb-4">
+                  {tour.description}
+                </p>
+                <ul className="space-y-2">
                   {tour.highlights.map((h) => (
-                    <li key={h} className="text-sm text-gray-700 flex items-center gap-2">
-                      <span className="text-[var(--color-primary)]">✓</span> {h}
+                    <li key={h} className="text-sm text-[var(--color-text)] flex items-center gap-2">
+                      <span className="text-[var(--color-primary)] text-xs">&#10003;</span> {h}
                     </li>
                   ))}
                 </ul>
@@ -85,23 +124,50 @@ export default function ToursPage() {
         </div>
       </div>
 
-      <section className="bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Business Section */}
+      <section className="bg-[var(--color-warm-dark)] py-20">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-4">{t("tours.business.title")}</h2>
-            <p className="text-gray-600 mb-8">{t("tours.business.desc")}</p>
-            <Link href="/contact" className="inline-block bg-[var(--color-primary)] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[var(--color-primary-light)] transition-colors">
+            <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-3">
+              Partnership
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">{t("tours.business.title")}</h2>
+            <p className="text-[var(--color-text-muted)] mb-8 text-lg leading-relaxed">
+              {t("tours.business.desc")}
+            </p>
+            <Link
+              href="/contact"
+              className="inline-block bg-[var(--color-primary)] text-white font-semibold px-8 py-3.5 rounded-full hover:bg-[var(--color-primary-light)] transition-colors"
+            >
               {t("tours.business.cta")}
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="bg-[var(--color-primary)] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">{t("tours.cta.title")}</h2>
-          <p className="text-green-100 mb-8 max-w-2xl mx-auto">{t("tours.cta.desc")}</p>
-          <Link href="/contact" className="inline-block bg-[var(--color-accent)] text-gray-900 font-semibold px-8 py-3 rounded-lg hover:bg-[var(--color-accent-light)] transition-colors">
+      {/* CTA */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-[var(--color-primary-dark)]" />
+        <Image
+          src="/images/village-placeholder.webp"
+          alt=""
+          fill
+          className="object-cover opacity-20"
+        />
+        <div className="relative max-w-4xl mx-auto px-6 text-center">
+          <p className="text-amber-200/80 text-sm tracking-[0.25em] uppercase font-medium mb-4">
+            Ready to explore?
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 leading-snug">
+            {t("tours.cta.title")}
+          </h2>
+          <p className="text-white/70 mb-10 max-w-2xl mx-auto text-lg leading-relaxed">
+            {t("tours.cta.desc")}
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block bg-[var(--color-accent)] text-white font-semibold px-8 py-3.5 rounded-full hover:bg-[var(--color-accent-light)] transition-all hover:shadow-lg"
+          >
             {t("tours.cta.contact")}
           </Link>
         </div>

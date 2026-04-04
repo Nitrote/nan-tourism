@@ -28,58 +28,78 @@ export default function ActivitiesPage() {
   }, []);
 
   return (
-    <div>
-      <section className="bg-gradient-to-br from-[var(--color-primary-dark)] to-[var(--color-primary)] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold mb-4">{t("activities.title")}</h1>
-          <p className="text-green-100 text-lg max-w-2xl">
+    <div className="bg-[var(--color-warm)]">
+      {/* Hero */}
+      <section className="relative min-h-[45vh] flex items-end overflow-hidden pt-16">
+        <Image
+          src="/images/village-placeholder.webp"
+          alt="Activities in Nan"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-amber-900/10 mix-blend-multiply" />
+
+        <div className="relative max-w-6xl mx-auto px-6 pb-14 w-full">
+          <p className="text-amber-200/90 text-sm tracking-[0.3em] uppercase mb-3 font-medium">
+            Experience
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 max-w-2xl">
+            {t("activities.title")}
+          </h1>
+          <p className="text-white/80 text-lg max-w-xl leading-relaxed">
             {t("activities.subtitle")}
           </p>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      {/* Activity Cards */}
+      <div className="max-w-6xl mx-auto px-6 py-20">
         {activities.length === 0 ? (
-          <p className="text-center text-gray-500 py-12">
+          <p className="text-center text-[var(--color-text-muted)] py-12">
             {t("activities.empty")}
           </p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {activities.map((activity) => (
               <Link
                 key={activity.id}
                 href={`/activities/${activity.slug}`}
-                className="group"
+                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
               >
-                <div className="bg-white rounded-xl shadow-sm border overflow-hidden hover:shadow-md transition-shadow h-full">
-                  <div className="relative h-48 bg-gray-100 flex items-center justify-center">
-                    {activity.coverImage ? (
-                      <Image
-                        src={activity.coverImage}
-                        alt={localizedField(activity, "name")}
-                        fill
-                        className="object-cover"
-                      />
-                    ) : (
-                      <span className="text-5xl">🎯</span>
-                    )}
-                  </div>
-                  <div className="p-5">
-                    <span className="text-xs font-medium text-[var(--color-primary)] uppercase tracking-wide">
-                      {t("category.activity")}
-                    </span>
-                    <h3 className="font-bold text-lg mt-1 group-hover:text-[var(--color-primary)] transition-colors">
-                      {localizedField(activity, "name")}
-                    </h3>
-                    <p className="text-gray-600 text-sm mt-2 line-clamp-3">
-                      {localizedField(activity, "description")}
+                <div className="relative h-52 overflow-hidden">
+                  {activity.coverImage ? (
+                    <Image
+                      src={activity.coverImage}
+                      alt={localizedField(activity, "name")}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  ) : (
+                    <Image
+                      src="/images/village-placeholder.webp"
+                      alt={localizedField(activity, "name")}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  )}
+                </div>
+                <div className="p-5">
+                  <span className="text-[var(--color-terracotta)] text-xs font-medium tracking-wider uppercase">
+                    {t("category.activity")}
+                  </span>
+                  <h3 className="font-bold text-lg mt-1 group-hover:text-[var(--color-primary)] transition-colors">
+                    {localizedField(activity, "name")}
+                  </h3>
+                  <p className="text-[var(--color-text-muted)] text-sm mt-2 line-clamp-2">
+                    {localizedField(activity, "description")}
+                  </p>
+                  {activity.address && (
+                    <p className="text-[var(--color-text-muted)] text-xs mt-3 opacity-60">
+                      📍 {localizedField(activity, "address")}
                     </p>
-                    {activity.address && (
-                      <p className="text-gray-400 text-xs mt-3">
-                        📍 {localizedField(activity, "address")}
-                      </p>
-                    )}
-                  </div>
+                  )}
                 </div>
               </Link>
             ))}

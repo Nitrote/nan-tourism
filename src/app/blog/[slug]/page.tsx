@@ -35,36 +35,57 @@ export default function BlogPostPage() {
       .finally(() => setLoading(false));
   }, [slug]);
 
-  if (loading) return <div className="min-h-[60vh] flex items-center justify-center"><p className="text-gray-400">Loading...</p></div>;
-  if (!post) return <div className="min-h-[60vh] flex items-center justify-center"><p className="text-gray-500">Post not found.</p></div>;
+  if (loading) return <div className="min-h-[60vh] flex items-center justify-center bg-[var(--color-warm)]"><p className="text-[var(--color-text-muted)]">Loading...</p></div>;
+  if (!post) return <div className="min-h-[60vh] flex items-center justify-center bg-[var(--color-warm)]"><p className="text-[var(--color-text-muted)]">Post not found.</p></div>;
 
   const content = lang === "th" && post.contentTh ? post.contentTh : post.content;
 
   return (
-    <div>
-      <section className="relative bg-gradient-to-br from-[var(--color-primary-dark)] to-[var(--color-primary)] text-white py-16">
-        {post.coverImage && (
-          <Image src={post.coverImage} alt={localizedField(post, "title")} fill className="object-cover opacity-20" />
+    <div className="bg-[var(--color-warm)]">
+      {/* Hero with image */}
+      <section className="relative min-h-[50vh] flex items-end overflow-hidden pt-16">
+        {post.coverImage ? (
+          <Image src={post.coverImage} alt={localizedField(post, "title")} fill className="object-cover" />
+        ) : (
+          <Image src="/images/village-placeholder.webp" alt={localizedField(post, "title")} fill className="object-cover" />
         )}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <Link href="/blog" className="text-green-200 hover:text-white text-sm mb-4 inline-block">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
+
+        <div className="relative max-w-4xl mx-auto px-6 pb-14 w-full">
+          <Link href="/blog" className="text-white/60 hover:text-white text-sm mb-4 inline-flex items-center gap-1 transition-colors">
             &larr; {t("blog.backToBlog")}
           </Link>
-          <span className="block text-xs font-medium text-[var(--color-accent)] uppercase tracking-wide mb-2">{post.category}</span>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">{localizedField(post, "title")}</h1>
-          <div className="flex items-center gap-4 text-green-200 text-sm">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="text-[var(--color-accent)] text-xs font-medium tracking-wider uppercase bg-black/20 px-3 py-1 rounded-full">
+              {post.category}
+            </span>
+          </div>
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight max-w-3xl">
+            {localizedField(post, "title")}
+          </h1>
+          <div className="flex items-center gap-4 text-white/60 text-sm">
             <span>{t("blog.by")} {post.author.name}</span>
+            <span className="w-1 h-1 rounded-full bg-white/40" />
             <span>{new Date(post.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</span>
           </div>
         </div>
       </section>
 
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-[var(--color-primary)]" dangerouslySetInnerHTML={{ __html: content }} />
+      {/* Article Content */}
+      <article className="max-w-3xl mx-auto px-6 py-16">
+        <div
+          className="prose prose-lg max-w-none prose-headings:text-[var(--color-text)] prose-p:text-[var(--color-text-muted)] prose-a:text-[var(--color-primary)] prose-strong:text-[var(--color-text)]"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
         {post.tags && (
-          <div className="mt-8 pt-8 border-t flex flex-wrap gap-2">
+          <div className="mt-12 pt-8 border-t border-[var(--color-warm-dark)] flex flex-wrap gap-2">
             {post.tags.split(",").map((tag) => (
-              <span key={tag} className="bg-green-50 text-[var(--color-primary)] text-xs font-medium px-3 py-1 rounded-full">{tag.trim()}</span>
+              <span
+                key={tag}
+                className="bg-white text-[var(--color-terracotta)] text-xs font-medium px-4 py-1.5 rounded-full shadow-sm"
+              >
+                {tag.trim()}
+              </span>
             ))}
           </div>
         )}

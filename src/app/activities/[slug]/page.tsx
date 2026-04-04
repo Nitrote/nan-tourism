@@ -39,65 +39,67 @@ export default function ActivityDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-[60vh] flex items-center justify-center">
-        <p className="text-gray-400">Loading...</p>
+      <div className="min-h-[60vh] flex items-center justify-center bg-[var(--color-warm)]">
+        <p className="text-[var(--color-text-muted)]">Loading...</p>
       </div>
     );
   }
 
   if (!activity) {
     return (
-      <div className="min-h-[60vh] flex items-center justify-center">
-        <p className="text-gray-500">Activity not found.</p>
+      <div className="min-h-[60vh] flex items-center justify-center bg-[var(--color-warm)]">
+        <p className="text-[var(--color-text-muted)]">Activity not found.</p>
       </div>
     );
   }
 
   return (
-    <div>
-      <section className="relative bg-gradient-to-br from-[var(--color-primary-dark)] to-[var(--color-primary)] text-white py-16">
-        {activity.coverImage && (
-          <Image
-            src={activity.coverImage}
-            alt={localizedField(activity, "name")}
-            fill
-            className="object-cover opacity-30"
-          />
+    <div className="bg-[var(--color-warm)]">
+      {/* Immersive Hero */}
+      <section className="relative min-h-[55vh] flex items-end overflow-hidden pt-16">
+        {activity.coverImage ? (
+          <Image src={activity.coverImage} alt={localizedField(activity, "name")} fill className="object-cover" />
+        ) : (
+          <Image src="/images/village-placeholder.webp" alt={localizedField(activity, "name")} fill className="object-cover" />
         )}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <Link
-            href="/activities"
-            className="text-green-200 hover:text-white text-sm mb-4 inline-block"
-          >
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-amber-900/10 mix-blend-multiply" />
+
+        <div className="relative max-w-4xl mx-auto px-6 pb-14 w-full">
+          <Link href="/activities" className="text-white/60 hover:text-white text-sm mb-4 inline-flex items-center gap-1 transition-colors">
             &larr; {t("activities.backToActivities")}
           </Link>
-          <span className="block text-xs font-medium text-[var(--color-accent)] uppercase tracking-wide mb-2">
+          <span className="block text-[var(--color-accent)] text-xs font-medium tracking-[0.2em] uppercase mb-3">
             {t("category.activity")}
           </span>
-          <h1 className="text-3xl md:text-4xl font-bold">
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-3 leading-tight">
             {localizedField(activity, "name")}
           </h1>
           {activity.address && (
-            <p className="text-green-200 mt-2">
-              📍 {localizedField(activity, "address")}
+            <p className="text-white/60 text-sm flex items-center gap-1.5">
+              <span>📍</span> {localizedField(activity, "address")}
             </p>
           )}
         </div>
       </section>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <p className="text-gray-700 leading-relaxed text-lg whitespace-pre-line">
+      {/* Content */}
+      <div className="max-w-4xl mx-auto px-6 py-16">
+        <p className="text-[var(--color-text-muted)] leading-relaxed text-lg whitespace-pre-line">
           {localizedField(activity, "description")}
         </p>
 
         {activity.latitude && activity.longitude && (
-          <div className="mt-8 bg-gray-50 rounded-xl p-6">
-            <h3 className="font-bold mb-2">{t("places.location")}</h3>
+          <div className="mt-12 bg-white rounded-2xl p-8 shadow-sm">
+            <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
+              Location
+            </p>
+            <h3 className="font-bold text-lg mb-4">{t("places.location")}</h3>
             <a
               href={`https://www.google.com/maps?q=${activity.latitude},${activity.longitude}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-[var(--color-primary)] text-white font-medium px-4 py-2 rounded-lg hover:bg-[var(--color-primary-light)] transition-colors text-sm"
+              className="inline-block bg-[var(--color-primary)] text-white font-semibold px-6 py-3 rounded-full hover:bg-[var(--color-primary-light)] transition-colors text-sm"
             >
               {t("places.openMaps")}
             </a>
