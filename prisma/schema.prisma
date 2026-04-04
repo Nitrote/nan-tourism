@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("ADMIN")
+  posts     Post[]
+  createdAt DateTime @default(now())
+}
+
+model Post {
+  id         String   @id @default(cuid())
+  title      String
+  titleTh    String   @default("")
+  slug       String   @unique
+  content    String
+  contentTh  String   @default("")
+  excerpt    String   @default("")
+  excerptTh  String   @default("")
+  coverImage String   @default("")
+  published  Boolean  @default(false)
+  category   String   @default("general")
+  tags       String   @default("")
+  author     User     @relation(fields: [authorId], references: [id])
+  authorId   String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Place {
+  id            String   @id @default(cuid())
+  name          String
+  nameTh        String   @default("")
+  slug          String   @unique
+  description   String
+  descriptionTh String   @default("")
+  coverImage    String   @default("")
+  category      String   @default("attraction")
+  latitude      Float?
+  longitude     Float?
+  address       String   @default("")
+  addressTh     String   @default("")
+  published     Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
