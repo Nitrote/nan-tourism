@@ -62,7 +62,7 @@ export default function PlaceDetailPage() {
           </h1>
           {place.address && (
             <p className="text-white/60 text-sm flex items-center gap-1.5">
-              <span>📍</span> {localizedField(place, "address")}
+              {localizedField(place, "address")}
             </p>
           )}
         </div>

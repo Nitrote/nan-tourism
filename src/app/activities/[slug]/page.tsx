@@ -77,7 +77,7 @@ export default function ActivityDetailPage() {
           </h1>
           {activity.address && (
             <p className="text-white/60 text-sm flex items-center gap-1.5">
-              <span>📍</span> {localizedField(activity, "address")}
+              {localizedField(activity, "address")}
             </p>
           )}
         </div>

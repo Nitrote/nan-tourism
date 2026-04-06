@@ -71,30 +71,22 @@ export default function AboutPage() {
           <h2 className="text-2xl md:text-3xl font-bold mb-8">{t("about.climate.title")}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <div className="w-10 h-10 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center mb-4">
-                <span className="text-lg">🌿</span>
-              </div>
+              <div className="w-3 h-3 rounded-full bg-[var(--color-primary)] mb-4" />
               <h3 className="font-bold text-lg mb-2">{t("about.climate.cool")}</h3>
               <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{t("about.climate.cool.desc")}</p>
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <div className="w-10 h-10 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center mb-4">
-                <span className="text-lg">☀️</span>
-              </div>
+              <div className="w-3 h-3 rounded-full bg-[var(--color-accent)] mb-4" />
               <h3 className="font-bold text-lg mb-2">{t("about.climate.hot")}</h3>
               <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{t("about.climate.hot.desc")}</p>
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <div className="w-10 h-10 rounded-full bg-[var(--color-terracotta)]/10 flex items-center justify-center mb-4">
-                <span className="text-lg">🌧️</span>
-              </div>
+              <div className="w-3 h-3 rounded-full bg-[var(--color-terracotta)] mb-4" />
               <h3 className="font-bold text-lg mb-2">{t("about.climate.rainy")}</h3>
               <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{t("about.climate.rainy.desc")}</p>
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-sm">
-              <div className="w-10 h-10 rounded-full bg-[var(--color-primary-dark)]/10 flex items-center justify-center mb-4">
-                <span className="text-lg">⛰️</span>
-              </div>
+              <div className="w-3 h-3 rounded-full bg-[var(--color-primary-dark)] mb-4" />
               <h3 className="font-bold text-lg mb-2">{t("about.climate.elevation")}</h3>
               <p className="text-[var(--color-text-muted)] text-sm leading-relaxed">{t("about.climate.elevation.desc")}</p>
             </div>

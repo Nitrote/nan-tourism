@@ -54,30 +54,22 @@ export default function ContactPage() {
             <h2 className="text-2xl md:text-3xl font-bold mb-8">{t("contact.info.title")}</h2>
             <div className="space-y-4">
               <div className="bg-white rounded-2xl p-5 shadow-sm">
-                <div className="w-9 h-9 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center mb-3">
-                  <span className="text-sm">📧</span>
-                </div>
+                <div className="w-3 h-3 rounded-full bg-[var(--color-accent)] mb-3" />
                 <h3 className="font-bold mb-1">{t("contact.info.email")}</h3>
                 <p className="text-[var(--color-text-muted)] text-sm">info@discovernan.com</p>
               </div>
               <div className="bg-white rounded-2xl p-5 shadow-sm">
-                <div className="w-9 h-9 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center mb-3">
-                  <span className="text-sm">📍</span>
-                </div>
+                <div className="w-3 h-3 rounded-full bg-[var(--color-primary)] mb-3" />
                 <h3 className="font-bold mb-1">{t("contact.info.location")}</h3>
                 <p className="text-[var(--color-text-muted)] text-sm">{t("contact.info.locationValue")}</p>
               </div>
               <div className="bg-white rounded-2xl p-5 shadow-sm">
-                <div className="w-9 h-9 rounded-full bg-[var(--color-terracotta)]/10 flex items-center justify-center mb-3">
-                  <span className="text-sm">⏱️</span>
-                </div>
+                <div className="w-3 h-3 rounded-full bg-[var(--color-terracotta)] mb-3" />
                 <h3 className="font-bold mb-1">{t("contact.info.responseTime")}</h3>
                 <p className="text-[var(--color-text-muted)] text-sm">{t("contact.info.responseTimeValue")}</p>
               </div>
               <div className="bg-white rounded-2xl p-5 shadow-sm">
-                <div className="w-9 h-9 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center mb-3">
-                  <span className="text-sm">💼</span>
-                </div>
+                <div className="w-3 h-3 rounded-full bg-[var(--color-accent)] mb-3" />
                 <h3 className="font-bold mb-1">{t("contact.info.business")}</h3>
                 <p className="text-[var(--color-text-muted)] text-sm">{t("contact.info.businessValue")}</p>
               </div>

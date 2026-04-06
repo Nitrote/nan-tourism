@@ -97,7 +97,7 @@ export default function ActivitiesPage() {
                   </p>
                   {activity.address && (
                     <p className="text-[var(--color-text-muted)] text-xs mt-3 opacity-60">
-                      📍 {localizedField(activity, "address")}
+                      {localizedField(activity, "address")}
                     </p>
                   )}
                 </div>

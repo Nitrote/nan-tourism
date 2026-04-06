@@ -17,7 +17,7 @@ export default function ToursPage() {
       highlights: lang === "th"
         ? ["วัดภูมินทร์และจิตรกรรมฝาผนัง", "พิพิธภัณฑ์แห่งชาติน่าน", "เดินชมเมืองเก่า", "รวมอาหารกลางวัน"]
         : ["Wat Phumin & its famous murals", "Nan National Museum", "Walking tour of old town", "Local lunch included"],
-      icon: "🏛️",
+      icon: "",
     },
     {
       title: lang === "th" ? "ผจญภัยดอยภูคา" : "Doi Phu Kha Adventure",
@@ -28,7 +28,7 @@ export default function ToursPage() {
       highlights: lang === "th"
         ? ["เดินป่าอุทยานแห่งชาติ", "จุดชมวิวบนภูเขา", "เยี่ยมชมน้ำตก", "อาหารและรถรับส่ง"]
         : ["National park trekking", "Scenic mountain viewpoints", "Waterfall visits", "Packed lunch & transport"],
-      icon: "⛰️",
+      icon: "",
     },
     {
       title: lang === "th" ? "ประสบการณ์วัฒนธรรมบ่อเกลือ" : "Bo Kluea Cultural Experience",
@@ -39,7 +39,7 @@ export default function ToursPage() {
       highlights: lang === "th"
         ? ["บ่อเกลือโบราณ", "เยี่ยมชมหมู่บ้าน", "ทิวทัศน์ภูเขา", "อาหารท้องถิ่น"]
         : ["Traditional salt wells", "Local village visits", "Mountain scenery drive", "Authentic local meals"],
-      icon: "🧂",
+      icon: "",
     },
     {
       title: lang === "th" ? "แผนท่องเที่ยวน่านแบบกำหนดเอง" : "Custom Nan Itinerary",
@@ -50,7 +50,7 @@ export default function ToursPage() {
       highlights: lang === "th"
         ? ["วางแผนเฉพาะบุคคล", "ความรู้จากคนในพื้นที่", "ช่วยจองที่พัก", "ซัพพอร์ตตลอดทริป"]
         : ["Personalized planning", "Local insider knowledge", "Accommodation booking help", "24/7 trip support"],
-      icon: "🗺️",
+      icon: "",
     },
   ];
 
@@ -97,9 +97,7 @@ export default function ToursPage() {
               className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group"
             >
               <div className="bg-gradient-to-br from-[var(--color-warm-dark)] to-[var(--color-warm)] h-36 flex items-center justify-center">
-                <span className="text-5xl group-hover:scale-110 transition-transform duration-300">
-                  {tour.icon}
-                </span>
+                <div className="w-4 h-4 rounded-full bg-[var(--color-primary)] group-hover:scale-110 transition-transform duration-300" />
               </div>
               <div className="p-6">
                 <div className="flex items-start justify-between gap-4 mb-3">

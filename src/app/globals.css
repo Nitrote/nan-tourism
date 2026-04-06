@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  /* Warmer, earthier palette */
-  --color-primary: #2c6e4f;
-  --color-primary-light: #3d8b68;
-  --color-primary-dark: #1a4332;
-  --color-accent: #d4913d;
-  --color-accent-light: #e5a85c;
-  --color-warm: #f9f5f0;
-  --color-warm-dark: #f0e8de;
-  --color-terracotta: #c4704b;
-  --color-text: #2d2a26;
-  --color-text-muted: #6b6560;
+  /* Coral / Orange / Yellow — Way Back Home palette */
+  --color-primary: #E07458;
+  --color-primary-light: #E8907A;
+  --color-primary-dark: #C45A42;
+  --color-accent: #F5A623;
+  --color-accent-light: #F5D76E;
+  --color-warm: #FFFAF5;
+  --color-warm-dark: #F5EDDA;
+  --color-lavender: #9B7CB8;
+  --color-text: #2D2A26;
+  --color-text-muted: #6B6560;
 }
 
 @theme inline {
@@ -24,7 +24,7 @@
   --color-accent-light: var(--color-accent-light);
   --color-warm: var(--color-warm);
   --color-warm-dark: var(--color-warm-dark);
-  --color-terracotta: var(--color-terracotta);
+  --color-lavender: var(--color-lavender);
   --color-text: var(--color-text);
   --color-text-muted: var(--color-text-muted);
 }
@@ -35,36 +35,6 @@ body {
   background-color: var(--color-warm);
 }
 
-/* Smooth scroll */
 html {
   scroll-behavior: smooth;
-}
-
-/* Subtle fade-in for sections */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-up {
-  animation: fadeUp 0.6s ease-out forwards;
-}
-
-/* Warm image overlay style */
-.warm-overlay::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(45, 42, 38, 0.1) 0%,
-    rgba(45, 42, 38, 0.4) 100%
-  );
-  pointer-events: none;
 }

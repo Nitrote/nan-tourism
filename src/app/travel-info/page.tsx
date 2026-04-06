@@ -44,9 +44,7 @@ export default function TravelInfoPage() {
           <div className="space-y-4">
             <div className="bg-white rounded-2xl p-6 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[var(--color-accent)]/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-lg">✈️</span>
-                </div>
+                <div className="w-3 h-3 rounded-full bg-[var(--color-accent)] shrink-0 mt-2" />
                 <div>
                   <h3 className="font-bold text-lg mb-2">{t("travel.byAir")}</h3>
                   <p className="text-[var(--color-text-muted)] leading-relaxed">{t("travel.byAir.desc")}</p>
@@ -55,9 +53,7 @@ export default function TravelInfoPage() {
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-lg">🚌</span>
-                </div>
+                <div className="w-3 h-3 rounded-full bg-[var(--color-primary)] shrink-0 mt-2" />
                 <div>
                   <h3 className="font-bold text-lg mb-2">{t("travel.byBus")}</h3>
                   <p className="text-[var(--color-text-muted)] leading-relaxed">{t("travel.byBus.desc")}</p>
@@ -66,9 +62,7 @@ export default function TravelInfoPage() {
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[var(--color-terracotta)]/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-lg">🚗</span>
-                </div>
+                <div className="w-3 h-3 rounded-full bg-[var(--color-terracotta)] shrink-0 mt-2" />
                 <div>
                   <h3 className="font-bold text-lg mb-2">{t("travel.byCar")}</h3>
                   <p className="text-[var(--color-text-muted)] leading-relaxed">{t("travel.byCar.desc")}</p>
@@ -86,7 +80,7 @@ export default function TravelInfoPage() {
           <h2 className="text-2xl md:text-3xl font-bold mb-8">{t("travel.gettingAround")}</h2>
           <div className="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-[var(--color-accent)]">
             <p className="text-[var(--color-text-muted)] leading-relaxed">
-              <span className="font-semibold text-[var(--color-text)]">💡 Tip:</span>{" "}
+              <span className="font-semibold text-[var(--color-text)]">Tip:</span>{" "}
               {t("travel.gettingAround.tip")}
             </p>
           </div>

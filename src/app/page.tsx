@@ -28,14 +28,6 @@ type Place = {
   category: string;
 };
 
-const categoryIcons: Record<string, string> = {
-  temple: "🏛️",
-  nature: "🌿",
-  culture: "🎭",
-  attraction: "📍",
-  activity: "🎯",
-};
-
 export default function HomePage() {
   const { t, localizedField } = useTranslation();
   const [posts, setPosts] = useState<Post[]>([]);
@@ -55,32 +47,27 @@ export default function HomePage() {
   return (
     <div className="bg-[var(--color-warm)]">
       {/* ═══════════ HERO ═══════════ */}
-      <section className="relative h-[85vh] min-h-[600px] flex items-end overflow-hidden">
+      <section className="relative h-[90vh] min-h-[600px] flex items-end overflow-hidden">
         <Image
           src="/images/hero-banner.jpg"
-          alt="Nan Province, Thailand"
+          alt="Nan Province"
           fill
-          className="object-cover scale-[1.02]"
+          className="object-cover"
           priority
         />
-        {/* Warm cinematic gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-        <div className="absolute inset-0 bg-amber-900/10 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
 
-        <div className="relative max-w-6xl mx-auto px-6 pb-16 md:pb-24 w-full">
-          <p className="text-amber-200/90 text-sm tracking-[0.3em] uppercase mb-4 font-medium">
-            Northern Thailand
-          </p>
-          <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.1] mb-6 max-w-2xl">
+        <div className="relative max-w-6xl mx-auto px-6 pb-20 w-full">
+          <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.1] mb-5 max-w-3xl">
             {t("home.hero.title")}
           </h1>
-          <p className="text-lg md:text-xl text-white/80 mb-10 max-w-xl leading-relaxed">
+          <p className="text-lg md:text-xl text-white/85 mb-10 max-w-xl leading-relaxed">
             {t("home.hero.description")}
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
               href="/places"
-              className="bg-white/95 text-[var(--color-primary-dark)] font-semibold px-7 py-3.5 rounded-full hover:bg-white transition-all hover:shadow-lg"
+              className="bg-[var(--color-primary)] text-white font-semibold px-7 py-3.5 rounded-full hover:bg-[var(--color-primary-light)] transition-all hover:shadow-lg"
             >
               {t("home.hero.explorePlaces")}
             </Link>
@@ -94,44 +81,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══════════ WELCOME STRIP ═══════════ */}
-      <section className="bg-[var(--color-primary-dark)] text-white py-5">
-        <div className="max-w-6xl mx-auto px-6 flex flex-wrap justify-center gap-8 md:gap-16 text-sm">
-          <span className="flex items-center gap-2 opacity-80">
-            <span className="text-lg">🏛️</span> {t("home.cards.temples.title")}
-          </span>
-          <span className="flex items-center gap-2 opacity-80">
-            <span className="text-lg">⛰️</span> {t("home.cards.mountains.title")}
-          </span>
-          <span className="flex items-center gap-2 opacity-80">
-            <span className="text-lg">🎭</span> {t("home.cards.culture.title")}
-          </span>
-          <span className="flex items-center gap-2 opacity-80">
-            <span className="text-lg">🎯</span> {t("category.activity")}
-          </span>
-        </div>
-      </section>
-
-      {/* ═══════════ INTRO SECTION ═══════════ */}
-      <section className="max-w-5xl mx-auto px-6 py-20 md:py-28 text-center">
-        <p className="text-[var(--color-accent)] text-sm tracking-[0.25em] uppercase font-medium mb-4">
-          {t("home.hero.subtitle")}
-        </p>
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-snug max-w-3xl mx-auto">
-          {t("home.cards.temples.desc")}
+      {/* ═══════════ INTRO ═══════════ */}
+      <section className="max-w-4xl mx-auto px-6 py-24 text-center">
+        <div className="w-12 h-[2px] bg-[var(--color-primary)] mx-auto mb-8" />
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-snug">
+          {t("home.intro.title")}
         </h2>
-        <p className="text-[var(--color-text-muted)] leading-relaxed max-w-2xl mx-auto text-lg">
-          {t("home.places.desc")}
+        <p className="text-[var(--color-text-muted)] leading-relaxed text-lg max-w-2xl mx-auto">
+          {t("home.intro.desc")}
         </p>
       </section>
 
-      {/* ═══════════ FEATURED PLACES — Editorial Grid ═══════════ */}
+      {/* ═══════════ PLACES ═══════════ */}
       {places.length > 0 && (
-        <section className="max-w-6xl mx-auto px-6 pb-20">
+        <section className="max-w-6xl mx-auto px-6 pb-24">
           <div className="flex items-end justify-between mb-10">
             <div>
-              <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
-                Explore
+              <p className="text-[var(--color-primary)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
+                {t("home.places.label")}
               </p>
               <h2 className="text-3xl font-bold">{t("home.places.title")}</h2>
             </div>
@@ -143,7 +110,6 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* Asymmetric magazine grid */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
             {places.slice(0, 4).map((place, i) => {
               const isLarge = i === 0 || i === 3;
@@ -155,25 +121,15 @@ export default function HomePage() {
                     isLarge ? "md:col-span-7" : "md:col-span-5"
                   } ${i < 2 ? "h-72 md:h-80" : "h-64 md:h-72"}`}
                 >
-                  {place.coverImage ? (
-                    <Image
-                      src={place.coverImage}
-                      alt={localizedField(place, "name")}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  ) : (
-                    <Image
-                      src="/images/village-placeholder.webp"
-                      alt={localizedField(place, "name")}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  )}
+                  <Image
+                    src={place.coverImage || "/images/village-placeholder.webp"}
+                    alt={localizedField(place, "name")}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <span className="text-white/70 text-xs tracking-wider uppercase">
-                      {categoryIcons[place.category] || "📍"}{" "}
+                    <span className="text-white/60 text-xs tracking-wider uppercase">
                       {t(`category.${place.category}` as Parameters<typeof t>[0])}
                     </span>
                     <h3 className="text-white text-xl font-bold mt-1 group-hover:translate-x-1 transition-transform duration-300">
@@ -188,25 +144,22 @@ export default function HomePage() {
             })}
           </div>
 
-          <div className="md:hidden text-center mt-6">
-            <Link
-              href="/places"
-              className="text-[var(--color-primary)] font-medium hover:underline"
-            >
+          <div className="md:hidden text-center mt-8">
+            <Link href="/places" className="text-[var(--color-primary)] font-medium hover:underline">
               {t("home.places.viewAll")} &rarr;
             </Link>
           </div>
         </section>
       )}
 
-      {/* ═══════════ ACTIVITIES — Horizontal cards ═══════════ */}
+      {/* ═══════════ ACTIVITIES ═══════════ */}
       {activities.length > 0 && (
-        <section className="bg-[var(--color-warm-dark)] py-20">
+        <section className="bg-[var(--color-warm-dark)] py-24">
           <div className="max-w-6xl mx-auto px-6">
             <div className="flex items-end justify-between mb-10">
               <div>
-                <p className="text-[var(--color-terracotta)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
-                  Experience
+                <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
+                  {t("home.activities.label")}
                 </p>
                 <h2 className="text-3xl font-bold">{t("home.activities.title")}</h2>
                 <p className="text-[var(--color-text-muted)] mt-2 max-w-lg">
@@ -229,24 +182,15 @@ export default function HomePage() {
                   className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
                 >
                   <div className="relative h-52 overflow-hidden">
-                    {activity.coverImage ? (
-                      <Image
-                        src={activity.coverImage}
-                        alt={localizedField(activity, "name")}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                    ) : (
-                      <Image
-                        src="/images/village-placeholder.webp"
-                        alt={localizedField(activity, "name")}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                    )}
+                    <Image
+                      src={activity.coverImage || "/images/village-placeholder.webp"}
+                      alt={localizedField(activity, "name")}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
                   </div>
                   <div className="p-5">
-                    <span className="text-[var(--color-terracotta)] text-xs font-medium tracking-wider uppercase">
+                    <span className="text-[var(--color-accent)] text-xs font-medium tracking-wider uppercase">
                       {t("category.activity")}
                     </span>
                     <h3 className="font-bold text-lg mt-1 group-hover:text-[var(--color-primary)] transition-colors">
@@ -260,11 +204,8 @@ export default function HomePage() {
               ))}
             </div>
 
-            <div className="md:hidden text-center mt-6">
-              <Link
-                href="/activities"
-                className="text-[var(--color-primary)] font-medium hover:underline"
-              >
+            <div className="md:hidden text-center mt-8">
+              <Link href="/activities" className="text-[var(--color-primary)] font-medium hover:underline">
                 {t("home.activities.viewAll")} &rarr;
               </Link>
             </div>
@@ -272,35 +213,35 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* ═══════════ FULL-WIDTH IMAGE BREAK ═══════════ */}
-      <section className="relative h-72 md:h-96 overflow-hidden">
+      {/* ═══════════ IMAGE BREAK ═══════════ */}
+      <section className="relative h-80 md:h-[28rem] overflow-hidden">
         <Image
           src="/images/village-placeholder.webp"
           alt="Life in Nan"
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/25" />
         <div className="absolute inset-0 flex items-center justify-center text-center px-6">
           <div>
-            <p className="text-white/70 text-sm tracking-[0.3em] uppercase mb-3">
-              Slow down. Breathe in.
+            <p className="text-white/70 text-sm tracking-[0.3em] uppercase mb-4">
+              {t("home.break.label")}
             </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-white max-w-lg leading-snug">
-              Nan moves at its own pace
+            <h2 className="text-3xl md:text-4xl font-bold text-white max-w-md leading-snug">
+              {t("home.break.title")}
             </h2>
           </div>
         </div>
       </section>
 
-      {/* ═══════════ BLOG — Clean editorial ═══════════ */}
+      {/* ═══════════ BLOG ═══════════ */}
       {posts.length > 0 && (
-        <section className="py-20">
+        <section className="py-24">
           <div className="max-w-6xl mx-auto px-6">
             <div className="flex items-end justify-between mb-10">
               <div>
-                <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
-                  Stories
+                <p className="text-[var(--color-primary)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
+                  {t("home.blog.label")}
                 </p>
                 <h2 className="text-3xl font-bold">{t("home.blog.title")}</h2>
               </div>
@@ -319,62 +260,35 @@ export default function HomePage() {
                   href={`/blog/${post.slug}`}
                   className={`group ${i === 0 ? "md:col-span-2 md:row-span-2" : ""}`}
                 >
-                  <article
-                    className={`bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex ${
-                      i === 0 ? "flex-col" : "flex-col"
-                    }`}
-                  >
-                    <div
-                      className={`relative overflow-hidden ${
-                        i === 0 ? "h-64 md:h-80" : "h-44"
-                      }`}
-                    >
-                      {post.coverImage ? (
-                        <Image
-                          src={post.coverImage}
-                          alt={localizedField(post, "title")}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                      ) : (
-                        <Image
-                          src="/images/village-placeholder.webp"
-                          alt={localizedField(post, "title")}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                      )}
+                  <article className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
+                    <div className={`relative overflow-hidden ${i === 0 ? "h-64 md:h-80" : "h-44"}`}>
+                      <Image
+                        src={post.coverImage || "/images/village-placeholder.webp"}
+                        alt={localizedField(post, "title")}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
                     </div>
                     <div className="p-6 flex-1 flex flex-col">
                       <div className="flex items-center gap-3 mb-3">
-                        <span className="text-[var(--color-accent)] text-xs font-medium tracking-wider uppercase">
+                        <span className="text-[var(--color-primary)] text-xs font-medium tracking-wider uppercase">
                           {post.category}
                         </span>
                         <span className="text-gray-300">|</span>
                         <time className="text-[var(--color-text-muted)] text-xs">
                           {new Date(post.createdAt).toLocaleDateString("en-US", {
-                            month: "short",
-                            day: "numeric",
-                            year: "numeric",
+                            month: "short", day: "numeric", year: "numeric",
                           })}
                         </time>
                       </div>
-                      <h3
-                        className={`font-bold group-hover:text-[var(--color-primary)] transition-colors leading-snug ${
-                          i === 0 ? "text-2xl mb-3" : "text-lg mb-2"
-                        }`}
-                      >
+                      <h3 className={`font-bold group-hover:text-[var(--color-primary)] transition-colors leading-snug ${i === 0 ? "text-2xl mb-3" : "text-lg mb-2"}`}>
                         {localizedField(post, "title")}
                       </h3>
-                      <p
-                        className={`text-[var(--color-text-muted)] flex-1 ${
-                          i === 0 ? "text-base line-clamp-3" : "text-sm line-clamp-2"
-                        }`}
-                      >
+                      <p className={`text-[var(--color-text-muted)] flex-1 ${i === 0 ? "text-base line-clamp-3" : "text-sm line-clamp-2"}`}>
                         {localizedField(post, "excerpt")}
                       </p>
                       <span className="text-[var(--color-primary)] text-sm font-medium mt-4 group-hover:underline underline-offset-4">
-                        Read more &rarr;
+                        {t("home.blog.readArticle")} &rarr;
                       </span>
                     </div>
                   </article>
@@ -382,11 +296,8 @@ export default function HomePage() {
               ))}
             </div>
 
-            <div className="md:hidden text-center mt-6">
-              <Link
-                href="/blog"
-                className="text-[var(--color-primary)] font-medium hover:underline"
-              >
+            <div className="md:hidden text-center mt-8">
+              <Link href="/blog" className="text-[var(--color-primary)] font-medium hover:underline">
                 {t("home.blog.readMore")} &rarr;
               </Link>
             </div>
@@ -394,35 +305,28 @@ export default function HomePage() {
         </section>
       )}
 
-      {/* ═══════════ CTA — Warm & inviting ═══════════ */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[var(--color-primary-dark)]" />
-        <Image
-          src="/images/hero-banner.jpg"
-          alt=""
-          fill
-          className="object-cover opacity-20"
-        />
+      {/* ═══════════ CTA ═══════════ */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-dark)]" />
+        <Image src="/images/hero-banner.jpg" alt="" fill className="object-cover opacity-15" />
         <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <p className="text-amber-200/80 text-sm tracking-[0.25em] uppercase font-medium mb-4">
-            Your journey starts here
-          </p>
+          <div className="w-12 h-[2px] bg-white/40 mx-auto mb-8" />
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 leading-snug">
             {t("home.cta.title")}
           </h2>
-          <p className="text-white/70 mb-10 max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-white/75 mb-10 max-w-2xl mx-auto text-lg leading-relaxed">
             {t("home.cta.desc")}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/tours"
-              className="bg-[var(--color-accent)] text-white font-semibold px-8 py-3.5 rounded-full hover:bg-[var(--color-accent-light)] transition-all hover:shadow-lg"
+              className="bg-white text-[var(--color-primary-dark)] font-semibold px-8 py-3.5 rounded-full hover:shadow-lg transition-all"
             >
               {t("home.cta.viewTours")}
             </Link>
             <Link
               href="/contact"
-              className="border border-white/30 text-white font-medium px-8 py-3.5 rounded-full hover:bg-white/10 backdrop-blur-sm transition-all"
+              className="border border-white/40 text-white font-medium px-8 py-3.5 rounded-full hover:bg-white/10 transition-all"
             >
               {t("home.cta.getInTouch")}
             </Link>

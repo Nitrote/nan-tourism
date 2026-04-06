@@ -20,7 +20,7 @@ type Place = {
 };
 
 const categoryIcons: Record<string, string> = {
-  temple: "🏛️", nature: "🌿", culture: "🎭", food: "🍜", attraction: "📍",
+  temple: "", nature: "", culture: "", food: "", attraction: "",
 };
 
 export default function PlacesPage() {
@@ -68,7 +68,7 @@ export default function PlacesPage() {
           <div key={category} className="mb-16">
             <div className="mb-8">
               <p className="text-[var(--color-terracotta)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
-                {categoryIcons[category] || "📍"} Category
+                Category
               </p>
               <h2 className="text-2xl md:text-3xl font-bold">
                 {t(`category.${category}` as TranslationKey)}
