@@ -1,150 +1,111 @@
 "use client";
 
-import { useRef, useEffect, useCallback, useState, type ReactNode } from "react";
+import {
+  useRef,
+  useEffect,
+  useCallback,
+  type ReactNode,
+  Children,
+} from "react";
 
 type Props = {
   children: ReactNode;
   speed?: number; // pixels per frame (default 0.5)
-  pauseOnHover?: boolean;
+  resumeDelay?: number; // ms to wait before resuming after interaction (default 3000)
+  repeats?: number; // how many times to repeat the children (default 4)
   className?: string;
 };
 
 export default function AutoScrollCarousel({
   children,
   speed = 0.5,
-  pauseOnHover = true,
+  resumeDelay = 3000,
+  repeats = 4,
   className = "",
 }: Props) {
-  const trackRef = useRef<HTMLDivElement>(null);
-  const positionRef = useRef(0);
+  const containerRef = useRef<HTMLDivElement>(null);
   const animatingRef = useRef(true);
-  const dragRef = useRef({
-    isDragging: false,
-    startX: 0,
-    startPos: 0,
-  });
-  const [, forceRender] = useState(0);
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const rafRef = useRef<number | null>(null);
 
-  // Measure half-width (one set of children) for loop reset
-  const getHalfWidth = useCallback(() => {
-    if (!trackRef.current) return 0;
-    return trackRef.current.scrollWidth / 2;
-  }, []);
+  // Build a long repeating list (like Apple timer approach)
+  const items = Children.toArray(children);
+  const repeatedItems: ReactNode[] = [];
+  for (let r = 0; r < repeats; r++) {
+    items.forEach((child, i) => {
+      repeatedItems.push(
+        <div key={`${r}-${i}`} aria-hidden={r > 0 ? true : undefined} className="contents">
+          {child}
+        </div>
+      );
+    });
+  }
 
-  // Animation loop
+  // Pause and schedule resume
+  const pauseAndScheduleResume = useCallback(() => {
+    animatingRef.current = false;
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => {
+      animatingRef.current = true;
+    }, resumeDelay);
+  }, [resumeDelay]);
+
+  // Auto-scroll with native scrollLeft
   useEffect(() => {
-    let rafId: number;
-
     function step() {
-      const track = trackRef.current;
-      if (!track) {
-        rafId = requestAnimationFrame(step);
-        return;
-      }
+      const el = containerRef.current;
+      if (el && animatingRef.current) {
+        el.scrollLeft += speed;
 
-      if (animatingRef.current && !dragRef.current.isDragging) {
-        positionRef.current -= speed;
-        const halfWidth = getHalfWidth();
-        if (halfWidth > 0 && Math.abs(positionRef.current) >= halfWidth) {
-          positionRef.current += halfWidth;
+        // If we've scrolled past ~75% of the total width, jump back to ~25%
+        // This creates a seamless feel without true infinite loop
+        const maxScroll = el.scrollWidth - el.clientWidth;
+        if (el.scrollLeft >= maxScroll * 0.75) {
+          el.scrollLeft = maxScroll * 0.25;
         }
-        track.style.transform = `translateX(${positionRef.current}px)`;
       }
-
-      rafId = requestAnimationFrame(step);
+      rafRef.current = requestAnimationFrame(step);
     }
 
-    rafId = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(rafId);
-  }, [speed, getHalfWidth]);
+    rafRef.current = requestAnimationFrame(step);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    };
+  }, [speed]);
 
-  // Force re-render once children are mounted so getHalfWidth works
+  // Scroll to ~25% on mount so we're not starting at the very beginning
   useEffect(() => {
-    forceRender((n) => n + 1);
-  }, [children]);
-
-  // Mouse drag handlers
-  function onMouseDown(e: React.MouseEvent) {
-    dragRef.current = {
-      isDragging: true,
-      startX: e.clientX,
-      startPos: positionRef.current,
-    };
-  }
-
-  function onMouseMove(e: React.MouseEvent) {
-    if (!dragRef.current.isDragging) return;
-    const delta = e.clientX - dragRef.current.startX;
-    positionRef.current = dragRef.current.startPos + delta;
-    if (trackRef.current) {
-      trackRef.current.style.transform = `translateX(${positionRef.current}px)`;
+    const el = containerRef.current;
+    if (el) {
+      requestAnimationFrame(() => {
+        const maxScroll = el.scrollWidth - el.clientWidth;
+        el.scrollLeft = maxScroll * 0.25;
+      });
     }
-  }
-
-  function onMouseUp() {
-    dragRef.current.isDragging = false;
-    // Normalize position after drag
-    const halfWidth = getHalfWidth();
-    if (halfWidth > 0) {
-      while (positionRef.current > 0) positionRef.current -= halfWidth;
-      while (Math.abs(positionRef.current) >= halfWidth)
-        positionRef.current += halfWidth;
-    }
-  }
-
-  // Touch handlers
-  function onTouchStart(e: React.TouchEvent) {
-    dragRef.current = {
-      isDragging: true,
-      startX: e.touches[0].clientX,
-      startPos: positionRef.current,
-    };
-  }
-
-  function onTouchMove(e: React.TouchEvent) {
-    if (!dragRef.current.isDragging) return;
-    const delta = e.touches[0].clientX - dragRef.current.startX;
-    positionRef.current = dragRef.current.startPos + delta;
-    if (trackRef.current) {
-      trackRef.current.style.transform = `translateX(${positionRef.current}px)`;
-    }
-  }
-
-  function onTouchEnd() {
-    onMouseUp();
-  }
+  }, [repeatedItems.length]);
 
   return (
     <div
-      className={`overflow-hidden cursor-grab active:cursor-grabbing ${className}`}
-      onMouseEnter={pauseOnHover ? () => (animatingRef.current = false) : undefined}
-      onMouseLeave={
-        pauseOnHover
-          ? () => {
-              animatingRef.current = true;
-              dragRef.current.isDragging = false;
-            }
-          : undefined
-      }
-      onMouseDown={onMouseDown}
-      onMouseMove={onMouseMove}
-      onMouseUp={onMouseUp}
-      onTouchStart={onTouchStart}
-      onTouchMove={onTouchMove}
-      onTouchEnd={onTouchEnd}
+      ref={containerRef}
+      className={`carousel-scroll overflow-x-auto flex gap-5 pb-4 ${className}`}
+      style={{ scrollBehavior: "auto" }}
+      onMouseEnter={pauseAndScheduleResume}
+      onMouseLeave={() => {
+        // Resume after delay when mouse leaves
+        if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+        resumeTimerRef.current = setTimeout(() => {
+          animatingRef.current = true;
+        }, 800);
+      }}
+      onTouchStart={pauseAndScheduleResume}
+      onScroll={() => {
+        // If user is manually scrolling, pause auto-scroll briefly
+        if (!animatingRef.current) return;
+        pauseAndScheduleResume();
+      }}
     >
-      <div
-        ref={trackRef}
-        className="flex gap-5 will-change-transform select-none"
-        style={{ width: "max-content" }}
-      >
-        {/* Original set */}
-        {children}
-        {/* Cloned set for infinite loop */}
-        <div aria-hidden="true" className="flex gap-5" style={{ width: "max-content" }}>
-          {children}
-        </div>
-      </div>
+      {repeatedItems}
     </div>
   );
 }
