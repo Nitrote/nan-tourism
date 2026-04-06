@@ -6,6 +6,7 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import { useTranslation } from "@/lib/useTranslation";
 import { useInView, useScrollProgress } from "@/lib/useScrollAnimations";
 import AutoScrollCarousel from "@/components/AutoScrollCarousel";
+import { MountainDivider, RiverDivider, WeaveDivider } from "@/components/SectionDividers";
 
 type Post = {
   id: string; title: string; titleTh: string; slug: string;
@@ -55,45 +56,7 @@ function ParallaxImage({ src, alt, children, className = "" }: {
 }
 
 /* ── Foliage divider SVG ── */
-function FoliageDivider({ fromColor, toColor }: { fromColor: string; toColor: string }) {
-  const { ref, inView } = useInView(0.3);
-  return (
-    <div ref={ref} className="relative h-32 md:h-48 overflow-hidden" style={{ backgroundColor: toColor }}>
-      {/* Organic wave shape */}
-      <svg
-        viewBox="0 0 1440 200"
-        className="absolute top-0 left-0 w-full h-full"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M0,0 L1440,0 L1440,60 Q1200,180 960,120 Q720,60 480,120 Q240,180 0,100 Z"
-          fill={fromColor}
-        />
-      </svg>
-      {/* Leaf silhouettes that spread apart on scroll */}
-      <div className={`absolute inset-0 flex items-center justify-center transition-all duration-1000 ${inView ? "opacity-100" : "opacity-0"}`}>
-        {/* Left leaf cluster */}
-        <svg
-          viewBox="0 0 120 120"
-          className={`absolute w-20 md:w-28 transition-transform duration-1000 ease-out ${inView ? "-translate-x-[45vw] -rotate-12" : "-translate-x-8 rotate-0"}`}
-          style={{ left: "50%" }}
-        >
-          <ellipse cx="60" cy="50" rx="35" ry="50" fill={fromColor} opacity="0.5" transform="rotate(-20 60 50)" />
-          <ellipse cx="45" cy="65" rx="25" ry="40" fill={fromColor} opacity="0.4" transform="rotate(-35 45 65)" />
-        </svg>
-        {/* Right leaf cluster */}
-        <svg
-          viewBox="0 0 120 120"
-          className={`absolute w-20 md:w-28 transition-transform duration-1000 ease-out ${inView ? "translate-x-[45vw] rotate-12" : "translate-x-8 rotate-0"}`}
-          style={{ right: "50%" }}
-        >
-          <ellipse cx="60" cy="50" rx="35" ry="50" fill={fromColor} opacity="0.5" transform="rotate(20 60 50)" />
-          <ellipse cx="75" cy="65" rx="25" ry="40" fill={fromColor} opacity="0.4" transform="rotate(35 75 65)" />
-        </svg>
-      </div>
-    </div>
-  );
-}
+/* FoliageDivider removed — replaced by SectionDividers components */
 
 /* ── Skeletons ── */
 function CardSkeleton({ className = "" }: { className?: string }) {
@@ -201,8 +164,12 @@ export default function HomePage() {
         </ScrollReveal>
       </section>
 
-      {/* ═══ FOLIAGE TRANSITION: Sky → Forest ═══ */}
-      <FoliageDivider fromColor="var(--color-sky-tint)" toColor="var(--color-forest-tint)" />
+      {/* ═══ MOUNTAINS: Sky → Forest ═══ */}
+      <MountainDivider
+        topColor="var(--color-sky-tint)"
+        bottomColor="var(--color-forest-tint)"
+        accentColor="#457B9D"
+      />
 
       {/* ═══ PLACES — Forest Green ═══ */}
       <section className="bg-[var(--color-forest-tint)] py-20 md:py-28">
@@ -251,6 +218,13 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ═══ RIVER: Forest → Golden ═══ */}
+      <RiverDivider
+        topColor="var(--color-forest-tint)"
+        bottomColor="var(--color-golden-tint)"
+        riverColor="#2A9D8F"
+      />
+
       {/* ═══ ACTIVITIES — Golden ═══ */}
       <section className="bg-[var(--color-golden-tint)] py-24 md:py-32">
         <ScrollReveal className="max-w-5xl mx-auto px-6 mb-12" animation="reveal-right">
@@ -297,6 +271,13 @@ export default function HomePage() {
           <Link href="/activities" className="text-[var(--color-golden-dark)] font-medium hover:underline">{t("home.activities.viewAll")} &rarr;</Link>
         </div>
       </section>
+
+      {/* ═══ WEAVE: Golden → Sunset ═══ */}
+      <WeaveDivider
+        topColor="var(--color-golden-tint)"
+        bottomColor="var(--color-sunset-tint)"
+        weaveColor="#E0B800"
+      />
 
       {/* ═══ BLOG — Sunset tint (part of transition) ═══ */}
       <section className="bg-[var(--color-sunset-tint)] py-24 md:py-32">
