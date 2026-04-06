@@ -17,11 +17,11 @@ export default function TravelInfoPage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-        <div className="absolute inset-0 bg-amber-900/10 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#E07A5F]/15 to-[#F5D040]/10 mix-blend-multiply" />
 
         <div className="relative max-w-6xl mx-auto px-6 pb-14 w-full">
-          <p className="text-amber-200/90 text-sm tracking-[0.3em] uppercase mb-3 font-medium">
+          <p className="text-[#F5D040]/90 text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Plan Your Trip
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 max-w-2xl">

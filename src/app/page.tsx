@@ -63,13 +63,13 @@ export default function HomePage() {
           className="object-cover scale-[1.02]"
           priority
         />
-        {/* Warm cinematic gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-        <div className="absolute inset-0 bg-amber-900/10 mix-blend-multiply" />
+        {/* Warm sunset gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#E07A5F]/20 via-[#F0A030]/10 to-[#F5D040]/10 mix-blend-multiply" />
 
         <div className="relative max-w-6xl mx-auto px-6 pb-16 md:pb-24 w-full">
-          <p className="text-amber-200/90 text-sm tracking-[0.3em] uppercase mb-4 font-medium">
-            Northern Thailand
+          <p className="text-[#F5D040]/90 text-sm tracking-[0.3em] uppercase mb-4 font-medium">
+            South of Nan
           </p>
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.1] mb-6 max-w-2xl">
             {t("home.hero.title")}
@@ -80,7 +80,7 @@ export default function HomePage() {
           <div className="flex flex-wrap gap-4">
             <Link
               href="/places"
-              className="bg-white/95 text-[var(--color-primary-dark)] font-semibold px-7 py-3.5 rounded-full hover:bg-white transition-all hover:shadow-lg"
+              className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-terracotta)] text-white font-semibold px-7 py-3.5 rounded-full hover:shadow-lg hover:brightness-110 transition-all"
             >
               {t("home.hero.explorePlaces")}
             </Link>
@@ -95,7 +95,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════ WELCOME STRIP ═══════════ */}
-      <section className="bg-[var(--color-primary-dark)] text-white py-5">
+      <section className="bg-[var(--color-accent)] text-white py-5">
         <div className="max-w-6xl mx-auto px-6 flex flex-wrap justify-center gap-8 md:gap-16 text-sm">
           <span className="flex items-center gap-2 opacity-80">
             <span className="text-lg">🏛️</span> {t("home.cards.temples.title")}
@@ -280,14 +280,14 @@ export default function HomePage() {
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#E07A5F]/40 via-black/20 to-[#F5D040]/30" />
         <div className="absolute inset-0 flex items-center justify-center text-center px-6">
           <div>
-            <p className="text-white/70 text-sm tracking-[0.3em] uppercase mb-3">
-              Slow down. Breathe in.
+            <p className="text-[#F5D040]/90 text-sm tracking-[0.3em] uppercase mb-3">
+              อยากให้รู้สึกเหมือนตอนเด็กที่เราโตมา
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-white max-w-lg leading-snug">
-              Nan moves at its own pace
+              A journey back to where you belong
             </h2>
           </div>
         </div>
@@ -396,15 +396,15 @@ export default function HomePage() {
 
       {/* ═══════════ CTA — Warm & inviting ═══════════ */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[var(--color-primary-dark)]" />
+        <div className="absolute inset-0 gradient-brand" />
         <Image
           src="/images/hero-banner.jpg"
           alt=""
           fill
-          className="object-cover opacity-20"
+          className="object-cover opacity-15 mix-blend-overlay"
         />
         <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <p className="text-amber-200/80 text-sm tracking-[0.25em] uppercase font-medium mb-4">
+          <p className="text-white/80 text-sm tracking-[0.25em] uppercase font-medium mb-4">
             Your journey starts here
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 leading-snug">
@@ -416,13 +416,13 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/tours"
-              className="bg-[var(--color-accent)] text-white font-semibold px-8 py-3.5 rounded-full hover:bg-[var(--color-accent-light)] transition-all hover:shadow-lg"
+              className="bg-white text-[var(--color-primary-dark)] font-semibold px-8 py-3.5 rounded-full hover:bg-white/90 transition-all hover:shadow-lg"
             >
               {t("home.cta.viewTours")}
             </Link>
             <Link
               href="/contact"
-              className="border border-white/30 text-white font-medium px-8 py-3.5 rounded-full hover:bg-white/10 backdrop-blur-sm transition-all"
+              className="border-2 border-white/60 text-white font-medium px-8 py-3.5 rounded-full hover:bg-white/15 backdrop-blur-sm transition-all"
             >
               {t("home.cta.getInTouch")}
             </Link>

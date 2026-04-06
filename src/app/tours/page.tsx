@@ -65,11 +65,11 @@ export default function ToursPage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-        <div className="absolute inset-0 bg-amber-900/10 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#E07A5F]/15 to-[#F5D040]/10 mix-blend-multiply" />
 
         <div className="relative max-w-6xl mx-auto px-6 pb-14 w-full">
-          <p className="text-amber-200/90 text-sm tracking-[0.3em] uppercase mb-3 font-medium">
+          <p className="text-[#F5D040]/90 text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Curated Experiences
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 max-w-2xl">
@@ -147,15 +147,15 @@ export default function ToursPage() {
 
       {/* CTA */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[var(--color-primary-dark)]" />
+        <div className="absolute inset-0 gradient-brand" />
         <Image
           src="/images/village-placeholder.webp"
           alt=""
           fill
-          className="object-cover opacity-20"
+          className="object-cover opacity-15 mix-blend-overlay"
         />
         <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <p className="text-amber-200/80 text-sm tracking-[0.25em] uppercase font-medium mb-4">
+          <p className="text-white/80 text-sm tracking-[0.25em] uppercase font-medium mb-4">
             Ready to explore?
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 leading-snug">

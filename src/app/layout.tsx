@@ -17,19 +17,19 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Discover Nan - Your Guide to Nan Province, Thailand",
-    template: "%s | Discover Nan",
+    default: "Way Back Home — เยือนบ้านเฮา | South of Nan, Thailand",
+    template: "%s | Way Back Home",
   },
   description:
-    "Your complete guide to exploring Nan province, Thailand. Discover temples, nature, culture, and hidden gems in one of northern Thailand's most enchanting destinations.",
+    "An immersive journey in the South of Nan, experiencing the local lived experience. อยากให้รู้สึกเหมือนตอนเด็กที่เราโตมา",
   keywords: [
     "Nan Thailand",
-    "Nan province",
-    "travel Nan",
+    "South of Nan",
+    "Way Back Home",
+    "เยือนบ้านเฮา",
     "Nan tourism",
     "northern Thailand",
     "Doi Phu Kha",
-    "Wat Phumin",
     "Bo Kluea",
   ],
 };

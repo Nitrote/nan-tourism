@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  /* Warmer, earthier palette */
-  --color-primary: #2c6e4f;
-  --color-primary-light: #3d8b68;
-  --color-primary-dark: #1a4332;
-  --color-accent: #d4913d;
-  --color-accent-light: #e5a85c;
-  --color-warm: #f9f5f0;
-  --color-warm-dark: #f0e8de;
-  --color-terracotta: #c4704b;
+  /* Way Back Home — Cheerful, nostalgic, adventurous */
+  --color-primary: #E07A5F;        /* Coral / salmon — hero tone */
+  --color-primary-light: #F0967E;  /* Lighter coral */
+  --color-primary-dark: #C4604A;   /* Deeper terracotta-coral */
+  --color-accent: #9B72B8;         /* Lavender / purple (concept bar) */
+  --color-accent-light: #B896D0;   /* Lighter lavender */
+  --color-warm: #FDF8F0;           /* Warm cream background */
+  --color-warm-dark: #F8EDD8;      /* Deeper cream */
+  --color-terracotta: #F0A030;     /* Orange from palette */
+  --color-orange: #F0A030;         /* Explicit orange */
+  --color-yellow: #F5D040;         /* Yellow from palette */
   --color-text: #2d2a26;
   --color-text-muted: #6b6560;
 }
@@ -25,6 +27,8 @@
   --color-warm: var(--color-warm);
   --color-warm-dark: var(--color-warm-dark);
   --color-terracotta: var(--color-terracotta);
+  --color-orange: var(--color-orange);
+  --color-yellow: var(--color-yellow);
   --color-text: var(--color-text);
   --color-text-muted: var(--color-text-muted);
 }
@@ -63,8 +67,13 @@ html {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(45, 42, 38, 0.1) 0%,
-    rgba(45, 42, 38, 0.4) 100%
+    rgba(224, 122, 95, 0.1) 0%,
+    rgba(196, 96, 74, 0.35) 100%
   );
   pointer-events: none;
+}
+
+/* Coral-to-yellow gradient utility */
+.gradient-brand {
+  background: linear-gradient(135deg, #E07A5F 0%, #F0A030 50%, #F5D040 100%);
 }
