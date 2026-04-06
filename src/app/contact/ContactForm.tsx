@@ -16,9 +16,9 @@ export default function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="bg-white rounded-2xl p-10 text-center shadow-sm">
-        <div className="w-14 h-14 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center mx-auto mb-5">
-          <span className="text-2xl">✓</span>
+      <div className="bg-[var(--color-coral-tint)] rounded-2xl p-10 text-center shadow-sm">
+        <div className="w-14 h-14 rounded-full bg-[var(--color-primary)] flex items-center justify-center mx-auto mb-5">
+          <span className="text-2xl text-white">✓</span>
         </div>
         <h3 className="text-xl font-bold mb-2">{t("contact.form.sent.title")}</h3>
         <p className="text-[var(--color-text-muted)] mb-6">{t("contact.form.sent.desc")}</p>

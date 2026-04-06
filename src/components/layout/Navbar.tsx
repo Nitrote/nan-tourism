@@ -45,7 +45,7 @@ export default function Navbar() {
                   scrolled ? "text-[var(--color-primary-dark)]" : "text-white"
                 }`}
               >
-                {lang === "th" ? "ค้นพบน่าน" : "Discover Nan"}
+                {lang === "th" ? "เยือนบ้านเฮา" : "Way Back Home"}
               </span>
             </Link>
           </div>

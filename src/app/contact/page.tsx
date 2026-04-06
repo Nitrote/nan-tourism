@@ -39,37 +39,37 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Form */}
           <div className="lg:col-span-2">
-            <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
+            <span className="inline-block bg-[var(--color-lavender)] text-white text-sm tracking-[0.2em] uppercase font-medium px-3 py-1.5 rounded-full mb-2">
               Message
-            </p>
+            </span>
             <h2 className="text-2xl md:text-3xl font-bold mb-8">{t("contact.form.title")}</h2>
             <ContactForm />
           </div>
 
           {/* Info Cards */}
           <div>
-            <p className="text-[var(--color-terracotta)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
+            <span className="inline-block bg-[var(--color-primary)] text-white text-sm tracking-[0.2em] uppercase font-medium px-3 py-1.5 rounded-full mb-2">
               Details
-            </p>
+            </span>
             <h2 className="text-2xl md:text-3xl font-bold mb-8">{t("contact.info.title")}</h2>
             <div className="space-y-4">
-              <div className="bg-white rounded-2xl p-5 shadow-sm">
-                <div className="w-3 h-3 rounded-full bg-[var(--color-accent)] mb-3" />
+              <div className="bg-white rounded-2xl p-5 shadow-sm border-l-4 border-[var(--color-primary)]">
+                <div className="w-3 h-3 rounded-full bg-[var(--color-primary)] mb-3" />
                 <h3 className="font-bold mb-1">{t("contact.info.email")}</h3>
                 <p className="text-[var(--color-text-muted)] text-sm">info@discovernan.com</p>
               </div>
-              <div className="bg-white rounded-2xl p-5 shadow-sm">
-                <div className="w-3 h-3 rounded-full bg-[var(--color-primary)] mb-3" />
+              <div className="bg-white rounded-2xl p-5 shadow-sm border-l-4 border-[var(--color-accent)]">
+                <div className="w-3 h-3 rounded-full bg-[var(--color-accent)] mb-3" />
                 <h3 className="font-bold mb-1">{t("contact.info.location")}</h3>
                 <p className="text-[var(--color-text-muted)] text-sm">{t("contact.info.locationValue")}</p>
               </div>
-              <div className="bg-white rounded-2xl p-5 shadow-sm">
-                <div className="w-3 h-3 rounded-full bg-[var(--color-terracotta)] mb-3" />
+              <div className="bg-white rounded-2xl p-5 shadow-sm border-l-4 border-[var(--color-lavender)]">
+                <div className="w-3 h-3 rounded-full bg-[var(--color-lavender)] mb-3" />
                 <h3 className="font-bold mb-1">{t("contact.info.responseTime")}</h3>
                 <p className="text-[var(--color-text-muted)] text-sm">{t("contact.info.responseTimeValue")}</p>
               </div>
-              <div className="bg-white rounded-2xl p-5 shadow-sm">
-                <div className="w-3 h-3 rounded-full bg-[var(--color-accent)] mb-3" />
+              <div className="bg-white rounded-2xl p-5 shadow-sm border-l-4 border-[var(--color-primary)]">
+                <div className="w-3 h-3 rounded-full bg-[var(--color-primary)] mb-3" />
                 <h3 className="font-bold mb-1">{t("contact.info.business")}</h3>
                 <p className="text-[var(--color-text-muted)] text-sm">{t("contact.info.businessValue")}</p>
               </div>

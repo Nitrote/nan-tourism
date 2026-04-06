@@ -56,7 +56,7 @@ export default function BlogPostPage() {
             &larr; {t("blog.backToBlog")}
           </Link>
           <div className="flex items-center gap-3 mb-3">
-            <span className="text-[var(--color-accent)] text-xs font-medium tracking-wider uppercase bg-black/20 px-3 py-1 rounded-full">
+            <span className="inline-block bg-[var(--color-lavender)] text-white text-xs font-medium tracking-wider uppercase px-3 py-1.5 rounded-full">
               {post.category}
             </span>
           </div>
@@ -82,7 +82,7 @@ export default function BlogPostPage() {
             {post.tags.split(",").map((tag) => (
               <span
                 key={tag}
-                className="bg-white text-[var(--color-terracotta)] text-xs font-medium px-4 py-1.5 rounded-full shadow-sm"
+                className="bg-[var(--color-coral-tint)] text-[var(--color-primary)] text-xs font-medium px-4 py-1.5 rounded-full"
               >
                 {tag.trim()}
               </span>

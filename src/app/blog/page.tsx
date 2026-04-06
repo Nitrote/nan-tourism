@@ -87,7 +87,7 @@ export default function BlogPage() {
                   </div>
                   <div className="p-6 flex-1 flex flex-col">
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="text-[var(--color-accent)] text-xs font-medium tracking-wider uppercase">
+                      <span className="inline-block bg-[var(--color-lavender)] text-white text-xs font-medium tracking-wider uppercase px-3 py-1 rounded-full">
                         {post.category}
                       </span>
                       <span className="text-gray-300">|</span>
@@ -115,7 +115,7 @@ export default function BlogPage() {
                     </p>
                     <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100 text-xs text-[var(--color-text-muted)]">
                       <span>{t("blog.by")} {post.author.name}</span>
-                      <span className="text-[var(--color-primary)] font-medium group-hover:underline underline-offset-4">
+                      <span className="inline-block bg-[var(--color-lavender-tint)] text-[var(--color-lavender)] font-medium px-3 py-1 rounded-full group-hover:bg-[var(--color-lavender)] group-hover:text-white transition-colors">
                         Read more &rarr;
                       </span>
                     </div>

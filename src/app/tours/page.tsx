@@ -94,7 +94,7 @@ export default function ToursPage() {
           {tourPackages.map((tour) => (
             <div
               key={tour.title}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group"
+              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group border-t-[3px] border-[var(--color-primary)]"
             >
               <div className="bg-gradient-to-br from-[var(--color-warm-dark)] to-[var(--color-warm)] h-36 flex items-center justify-center">
                 <div className="w-4 h-4 rounded-full bg-[var(--color-primary)] group-hover:scale-110 transition-transform duration-300" />
@@ -102,7 +102,7 @@ export default function ToursPage() {
               <div className="p-6">
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <h3 className="font-bold text-xl">{tour.title}</h3>
-                  <span className="text-xs font-medium text-[var(--color-terracotta)] bg-[var(--color-terracotta)]/10 px-3 py-1 rounded-full whitespace-nowrap">
+                  <span className="text-xs font-medium text-[var(--color-primary)] bg-[var(--color-coral-tint)] px-3 py-1 rounded-full whitespace-nowrap">
                     {tour.duration}
                   </span>
                 </div>
@@ -123,7 +123,7 @@ export default function ToursPage() {
       </div>
 
       {/* Business Section */}
-      <section className="bg-[var(--color-warm-dark)] py-20">
+      <section className="bg-[var(--color-lavender-tint)] py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-3">
@@ -145,7 +145,7 @@ export default function ToursPage() {
 
       {/* CTA */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[var(--color-primary-dark)]" />
+        <div className="absolute inset-0 bg-[var(--color-primary)]" />
         <Image
           src="/images/village-placeholder.webp"
           alt=""

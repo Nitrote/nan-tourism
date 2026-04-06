@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Discover Nan - Your Guide to Nan Province, Thailand",
-    template: "%s | Discover Nan",
+    default: "Way Back Home — Nan Province, Thailand",
+    template: "%s | Way Back Home",
   },
   description:
     "Your complete guide to exploring Nan province, Thailand. Discover temples, nature, culture, and hidden gems in one of northern Thailand's most enchanting destinations.",

@@ -15,7 +15,7 @@ export async function GET() {
     }),
     prisma.place.findMany({
       where: { published: true, category: { not: "activity" } },
-      take: 4,
+      take: 8,
       select: {
         id: true, name: true, nameTh: true, slug: true,
         description: true, descriptionTh: true, coverImage: true,
@@ -24,7 +24,7 @@ export async function GET() {
     }),
     prisma.place.findMany({
       where: { published: true, category: "activity" },
-      take: 3,
+      take: 6,
       select: {
         id: true, name: true, nameTh: true, slug: true,
         description: true, descriptionTh: true, coverImage: true,

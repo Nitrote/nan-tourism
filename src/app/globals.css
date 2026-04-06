@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Coral / Orange / Yellow — Way Back Home palette */
+  /* Way Back Home palette — coral / orange / yellow */
   --color-primary: #E07458;
   --color-primary-light: #E8907A;
   --color-primary-dark: #C45A42;
@@ -12,6 +12,12 @@
   --color-lavender: #9B7CB8;
   --color-text: #2D2A26;
   --color-text-muted: #6B6560;
+
+  /* Tint backgrounds for prominent color usage */
+  --color-coral-tint: #FDF0EC;
+  --color-orange-tint: #FEF5E7;
+  --color-yellow-tint: #FEF9E8;
+  --color-lavender-tint: #F5F0F9;
 }
 
 @theme inline {
@@ -27,6 +33,10 @@
   --color-lavender: var(--color-lavender);
   --color-text: var(--color-text);
   --color-text-muted: var(--color-text-muted);
+  --color-coral-tint: var(--color-coral-tint);
+  --color-orange-tint: var(--color-orange-tint);
+  --color-yellow-tint: var(--color-yellow-tint);
+  --color-lavender-tint: var(--color-lavender-tint);
 }
 
 body {
@@ -37,4 +47,8 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }

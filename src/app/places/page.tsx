@@ -19,9 +19,6 @@ type Place = {
   addressTh: string;
 };
 
-const categoryIcons: Record<string, string> = {
-  temple: "", nature: "", culture: "", food: "", attraction: "",
-};
 
 export default function PlacesPage() {
   const { t, localizedField } = useTranslation();
@@ -67,9 +64,9 @@ export default function PlacesPage() {
         {categories.map((category) => (
           <div key={category} className="mb-16">
             <div className="mb-8">
-              <p className="text-[var(--color-terracotta)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
-                Category
-              </p>
+              <span className="inline-block bg-[var(--color-primary)] text-white text-sm tracking-[0.2em] uppercase font-medium px-3 py-1.5 rounded-full mb-2">
+                {t(`category.${category}` as TranslationKey)}
+              </span>
               <h2 className="text-2xl md:text-3xl font-bold">
                 {t(`category.${category}` as TranslationKey)}
               </h2>

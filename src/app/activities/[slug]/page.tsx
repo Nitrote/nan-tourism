@@ -69,7 +69,7 @@ export default function ActivityDetailPage() {
           <Link href="/activities" className="text-white/60 hover:text-white text-sm mb-4 inline-flex items-center gap-1 transition-colors">
             &larr; {t("activities.backToActivities")}
           </Link>
-          <span className="block text-[var(--color-accent)] text-xs font-medium tracking-[0.2em] uppercase mb-3">
+          <span className="inline-block bg-[var(--color-accent)] text-white text-xs font-medium tracking-[0.2em] uppercase px-3 py-1.5 rounded-full mb-3">
             {t("category.activity")}
           </span>
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-3 leading-tight">
@@ -90,7 +90,7 @@ export default function ActivityDetailPage() {
         </p>
 
         {activity.latitude && activity.longitude && (
-          <div className="mt-12 bg-white rounded-2xl p-8 shadow-sm">
+          <div className="mt-12 bg-white rounded-2xl p-8 shadow-sm border-l-4 border-[var(--color-accent)]">
             <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
               Location
             </p>

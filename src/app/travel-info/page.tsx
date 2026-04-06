@@ -37,32 +37,32 @@ export default function TravelInfoPage() {
       <div className="max-w-4xl mx-auto px-6 py-20">
         {/* Getting There */}
         <section className="mb-16">
-          <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-3">
+          <span className="inline-block bg-[var(--color-primary)] text-white text-sm tracking-[0.2em] uppercase font-medium px-3 py-1.5 rounded-full mb-3">
             Transportation
-          </p>
+          </span>
           <h2 className="text-2xl md:text-3xl font-bold mb-8">{t("travel.gettingThere")}</h2>
           <div className="space-y-4">
-            <div className="bg-white rounded-2xl p-6 shadow-sm">
+            <div className="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-[var(--color-primary)]">
               <div className="flex items-start gap-4">
-                <div className="w-3 h-3 rounded-full bg-[var(--color-accent)] shrink-0 mt-2" />
+                <div className="w-3 h-3 rounded-full bg-[var(--color-primary)] shrink-0 mt-2" />
                 <div>
                   <h3 className="font-bold text-lg mb-2">{t("travel.byAir")}</h3>
                   <p className="text-[var(--color-text-muted)] leading-relaxed">{t("travel.byAir.desc")}</p>
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-2xl p-6 shadow-sm">
+            <div className="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-[var(--color-accent)]">
               <div className="flex items-start gap-4">
-                <div className="w-3 h-3 rounded-full bg-[var(--color-primary)] shrink-0 mt-2" />
+                <div className="w-3 h-3 rounded-full bg-[var(--color-accent)] shrink-0 mt-2" />
                 <div>
                   <h3 className="font-bold text-lg mb-2">{t("travel.byBus")}</h3>
                   <p className="text-[var(--color-text-muted)] leading-relaxed">{t("travel.byBus.desc")}</p>
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-2xl p-6 shadow-sm">
+            <div className="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-[var(--color-lavender)]">
               <div className="flex items-start gap-4">
-                <div className="w-3 h-3 rounded-full bg-[var(--color-terracotta)] shrink-0 mt-2" />
+                <div className="w-3 h-3 rounded-full bg-[var(--color-lavender)] shrink-0 mt-2" />
                 <div>
                   <h3 className="font-bold text-lg mb-2">{t("travel.byCar")}</h3>
                   <p className="text-[var(--color-text-muted)] leading-relaxed">{t("travel.byCar.desc")}</p>
@@ -74,13 +74,13 @@ export default function TravelInfoPage() {
 
         {/* Getting Around */}
         <section className="mb-16">
-          <p className="text-[var(--color-terracotta)] text-sm tracking-[0.2em] uppercase font-medium mb-3">
+          <span className="inline-block bg-[var(--color-accent)] text-white text-sm tracking-[0.2em] uppercase font-medium px-3 py-1.5 rounded-full mb-3">
             Local Travel
-          </p>
+          </span>
           <h2 className="text-2xl md:text-3xl font-bold mb-8">{t("travel.gettingAround")}</h2>
-          <div className="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-[var(--color-accent)]">
+          <div className="bg-[var(--color-coral-tint)] rounded-2xl p-6 shadow-sm border-l-4 border-[var(--color-primary)]">
             <p className="text-[var(--color-text-muted)] leading-relaxed">
-              <span className="font-semibold text-[var(--color-text)]">Tip:</span>{" "}
+              <span className="font-semibold text-[var(--color-primary)]">Tip:</span>{" "}
               {t("travel.gettingAround.tip")}
             </p>
           </div>
@@ -88,9 +88,9 @@ export default function TravelInfoPage() {
 
         {/* Visa */}
         <section className="mb-16">
-          <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-3">
+          <span className="inline-block bg-[var(--color-lavender)] text-white text-sm tracking-[0.2em] uppercase font-medium px-3 py-1.5 rounded-full mb-3">
             Entry
-          </p>
+          </span>
           <h2 className="text-2xl md:text-3xl font-bold mb-8">{t("travel.visa")}</h2>
           <div className="bg-white rounded-2xl p-6 shadow-sm">
             <p className="text-[var(--color-text-muted)] leading-relaxed">{t("travel.visa")}</p>
@@ -99,9 +99,9 @@ export default function TravelInfoPage() {
 
         {/* Best Time */}
         <section>
-          <p className="text-[var(--color-terracotta)] text-sm tracking-[0.2em] uppercase font-medium mb-3">
+          <span className="inline-block bg-[var(--color-primary)] text-white text-sm tracking-[0.2em] uppercase font-medium px-3 py-1.5 rounded-full mb-3">
             Seasons
-          </p>
+          </span>
           <h2 className="text-2xl md:text-3xl font-bold mb-8">{t("travel.bestTime")}</h2>
           <div className="bg-white rounded-2xl p-6 shadow-sm">
             <p className="text-[var(--color-text-muted)] leading-relaxed">{t("about.climate.cool.desc")}</p>
