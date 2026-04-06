@@ -63,7 +63,7 @@ export default function AdminLoginPage() {
               id="email"
               name="email"
               required
-              className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none"
+              className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none"
             />
           </div>
 
@@ -79,14 +79,14 @@ export default function AdminLoginPage() {
               id="password"
               name="password"
               required
-              className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none"
+              className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-[var(--color-primary)] text-white font-semibold py-2.5 rounded-lg hover:bg-[var(--color-primary-light)] transition-colors disabled:opacity-50"
+            className="w-full bg-[var(--color-forest)] text-white font-semibold py-2.5 rounded-lg hover:bg-[var(--color-forest-light)] transition-colors disabled:opacity-50"
           >
             {loading ? "Signing in..." : "Sign In"}
           </button>

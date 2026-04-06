@@ -114,7 +114,7 @@ export default function PostForm({ post }: { post?: Post }) {
                 if (slugInput) slugInput.value = slugify(e.target.value);
               }
             }}
-            className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none"
+            className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none"
           />
         </div>
         <div>
@@ -123,7 +123,7 @@ export default function PostForm({ post }: { post?: Post }) {
             type="text"
             name="titleTh"
             defaultValue={post?.titleTh}
-            className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none"
+            className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none"
           />
         </div>
       </div>
@@ -135,7 +135,7 @@ export default function PostForm({ post }: { post?: Post }) {
           name="slug"
           required
           defaultValue={post?.slug}
-          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none font-mono text-sm"
+          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none font-mono text-sm"
         />
       </div>
 
@@ -146,7 +146,7 @@ export default function PostForm({ post }: { post?: Post }) {
           name="coverImage"
           defaultValue={post?.coverImage}
           placeholder="/images/photo.jpg or https://example.com/image.jpg"
-          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none"
+          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none"
         />
       </div>
 
@@ -154,11 +154,11 @@ export default function PostForm({ post }: { post?: Post }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Excerpt (English)</label>
-          <textarea name="excerpt" rows={2} defaultValue={post?.excerpt} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none" />
+          <textarea name="excerpt" rows={2} defaultValue={post?.excerpt} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none" />
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Excerpt (Thai)</label>
-          <textarea name="excerptTh" rows={2} defaultValue={post?.excerptTh} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none" />
+          <textarea name="excerptTh" rows={2} defaultValue={post?.excerptTh} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none" />
         </div>
       </div>
 
@@ -181,7 +181,7 @@ export default function PostForm({ post }: { post?: Post }) {
           rows={12}
           required
           defaultValue={post?.content}
-          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none font-mono text-sm"
+          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none font-mono text-sm"
         />
       </div>
 
@@ -203,14 +203,14 @@ export default function PostForm({ post }: { post?: Post }) {
           name="contentTh"
           rows={12}
           defaultValue={post?.contentTh}
-          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none font-mono text-sm"
+          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none font-mono text-sm"
         />
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
-          <select name="category" defaultValue={post?.category || "general"} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none bg-white">
+          <select name="category" defaultValue={post?.category || "general"} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none bg-white">
             <option value="general">General</option>
             <option value="travel">Travel</option>
             <option value="culture">Culture</option>
@@ -221,7 +221,7 @@ export default function PostForm({ post }: { post?: Post }) {
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Tags (comma-separated)</label>
-          <input type="text" name="tags" defaultValue={post?.tags} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none" placeholder="nan, temples, travel" />
+          <input type="text" name="tags" defaultValue={post?.tags} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none" placeholder="nan, temples, travel" />
         </div>
       </div>
 
@@ -231,7 +231,7 @@ export default function PostForm({ post }: { post?: Post }) {
       </div>
 
       <div className="flex gap-3 pt-4">
-        <button type="submit" disabled={saving} className="bg-[var(--color-primary)] text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-[var(--color-primary-light)] transition-colors disabled:opacity-50">
+        <button type="submit" disabled={saving} className="bg-[var(--color-forest)] text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-[var(--color-forest-light)] transition-colors disabled:opacity-50">
           {saving ? "Saving..." : post ? "Update Post" : "Create Post"}
         </button>
         <button type="button" onClick={() => router.back()} className="px-6 py-2.5 border rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">

@@ -16,15 +16,15 @@ export default function ContactForm() {
 
   if (status === "sent") {
     return (
-      <div className="bg-[var(--color-coral-tint)] rounded-2xl p-10 text-center shadow-sm">
-        <div className="w-14 h-14 rounded-full bg-[var(--color-primary)] flex items-center justify-center mx-auto mb-5">
+      <div className="bg-[var(--color-sky-tint)] rounded-2xl p-10 text-center shadow-sm">
+        <div className="w-14 h-14 rounded-full bg-[var(--color-sky)] flex items-center justify-center mx-auto mb-5">
           <span className="text-2xl text-white">✓</span>
         </div>
         <h3 className="text-xl font-bold mb-2">{t("contact.form.sent.title")}</h3>
         <p className="text-[var(--color-text-muted)] mb-6">{t("contact.form.sent.desc")}</p>
         <button
           onClick={() => setStatus("idle")}
-          className="text-[var(--color-primary)] font-medium hover:underline underline-offset-4"
+          className="text-[var(--color-sky)] font-medium hover:underline underline-offset-4"
         >
           {t("contact.form.sendAnother")}
         </button>
@@ -44,7 +44,7 @@ export default function ContactForm() {
             id="name"
             name="name"
             required
-            className="w-full px-4 py-3 bg-white border border-[var(--color-warm-dark)] rounded-2xl focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none transition-shadow text-[var(--color-text)]"
+            className="w-full px-4 py-3 bg-white border border-[var(--color-warm-dark)] rounded-2xl focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent outline-none transition-shadow text-[var(--color-text)]"
           />
         </div>
         <div>
@@ -56,7 +56,7 @@ export default function ContactForm() {
             id="email"
             name="email"
             required
-            className="w-full px-4 py-3 bg-white border border-[var(--color-warm-dark)] rounded-2xl focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none transition-shadow text-[var(--color-text)]"
+            className="w-full px-4 py-3 bg-white border border-[var(--color-warm-dark)] rounded-2xl focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent outline-none transition-shadow text-[var(--color-text)]"
           />
         </div>
       </div>
@@ -68,7 +68,7 @@ export default function ContactForm() {
           id="subject"
           name="subject"
           required
-          className="w-full px-4 py-3 bg-white border border-[var(--color-warm-dark)] rounded-2xl focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none transition-shadow text-[var(--color-text)]"
+          className="w-full px-4 py-3 bg-white border border-[var(--color-warm-dark)] rounded-2xl focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent outline-none transition-shadow text-[var(--color-text)]"
         >
           <option value="">{t("contact.form.selectTopic")}</option>
           <option value="tour-booking">{t("contact.form.tourBooking")}</option>
@@ -86,14 +86,14 @@ export default function ContactForm() {
           name="message"
           rows={5}
           required
-          className="w-full px-4 py-3 bg-white border border-[var(--color-warm-dark)] rounded-2xl focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none transition-shadow resize-y text-[var(--color-text)]"
+          className="w-full px-4 py-3 bg-white border border-[var(--color-warm-dark)] rounded-2xl focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent outline-none transition-shadow resize-y text-[var(--color-text)]"
           placeholder={t("contact.form.placeholder")}
         />
       </div>
       <button
         type="submit"
         disabled={status === "sending"}
-        className="bg-[var(--color-primary)] text-white font-semibold px-8 py-3.5 rounded-full hover:bg-[var(--color-primary-light)] transition-all hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+        className="bg-[var(--color-sky)] text-white font-semibold px-8 py-3.5 rounded-full hover:bg-[var(--color-sky-light)] transition-all hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === "sending" ? t("contact.form.sending") : t("contact.form.send")}
       </button>

@@ -14,7 +14,7 @@ export default async function AdminActivitiesPage() {
         <h1 className="text-2xl font-bold">Activities</h1>
         <Link
           href="/admin/activities/new"
-          className="bg-[var(--color-primary)] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[var(--color-primary-light)] transition-colors"
+          className="bg-[var(--color-forest)] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[var(--color-forest-light)] transition-colors"
         >
           + New Activity
         </Link>
@@ -33,7 +33,7 @@ export default async function AdminActivitiesPage() {
             {activities.map((a) => (
               <tr key={a.id} className="hover:bg-gray-50">
                 <td className="px-5 py-3">
-                  <Link href={`/admin/activities/${a.id}`} className="font-medium text-sm hover:text-[var(--color-primary)]">
+                  <Link href={`/admin/activities/${a.id}`} className="font-medium text-sm hover:text-[var(--color-forest)]">
                     {a.name}
                   </Link>
                 </td>

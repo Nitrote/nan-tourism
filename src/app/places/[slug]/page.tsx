@@ -48,13 +48,13 @@ export default function PlaceDetailPage() {
           <Image src="/images/village-placeholder.webp" alt={localizedField(place, "name")} fill className="object-cover" />
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-        <div className="absolute inset-0 bg-amber-900/10 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[var(--color-forest-dark)]/10 mix-blend-multiply" />
 
         <div className="relative max-w-4xl mx-auto px-6 pb-14 w-full">
           <Link href="/places" className="text-white/60 hover:text-white text-sm mb-4 inline-flex items-center gap-1 transition-colors">
             &larr; {t("places.backToPlaces")}
           </Link>
-          <span className="inline-block bg-[var(--color-accent)] text-white text-xs font-medium tracking-[0.2em] uppercase px-3 py-1.5 rounded-full mb-3">
+          <span className="inline-block bg-[var(--color-forest)] text-white text-xs font-medium tracking-[0.2em] uppercase px-3 py-1.5 rounded-full mb-3">
             {place.category}
           </span>
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-3 leading-tight">
@@ -75,8 +75,8 @@ export default function PlaceDetailPage() {
         </p>
 
         {place.latitude && place.longitude && (
-          <div className="mt-12 bg-white rounded-2xl p-8 shadow-sm border-l-4 border-[var(--color-accent)]">
-            <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
+          <div className="mt-12 bg-white rounded-2xl p-8 shadow-sm border-l-4 border-[var(--color-forest)]">
+            <p className="text-[var(--color-forest)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
               Location
             </p>
             <h3 className="font-bold text-lg mb-4">{t("places.location")}</h3>
@@ -84,7 +84,7 @@ export default function PlaceDetailPage() {
               href={`https://www.google.com/maps?q=${place.latitude},${place.longitude}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-[var(--color-primary)] text-white font-semibold px-6 py-3 rounded-full hover:bg-[var(--color-primary-light)] transition-colors text-sm"
+              className="inline-block bg-[var(--color-forest)] text-white font-semibold px-6 py-3 rounded-full hover:bg-[var(--color-forest-light)] transition-colors text-sm"
             >
               {t("places.openMaps")}
             </a>

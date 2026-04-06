@@ -7,35 +7,19 @@ import { useTranslation } from "@/lib/useTranslation";
 import AutoScrollCarousel from "@/components/AutoScrollCarousel";
 
 type Post = {
-  id: string;
-  title: string;
-  titleTh: string;
-  slug: string;
-  excerpt: string;
-  excerptTh: string;
-  coverImage: string;
-  category: string;
-  createdAt: string;
+  id: string; title: string; titleTh: string; slug: string;
+  excerpt: string; excerptTh: string; coverImage: string;
+  category: string; createdAt: string;
 };
 
 type Place = {
-  id: string;
-  name: string;
-  nameTh: string;
-  slug: string;
-  description: string;
-  descriptionTh: string;
-  coverImage: string;
+  id: string; name: string; nameTh: string; slug: string;
+  description: string; descriptionTh: string; coverImage: string;
   category: string;
 };
 
-// Skeleton placeholder for carousel cards
 function CardSkeleton({ className = "" }: { className?: string }) {
-  return (
-    <div className={`flex-shrink-0 ${className}`}>
-      <div className="skeleton w-full h-full rounded-2xl" />
-    </div>
-  );
+  return <div className={`flex-shrink-0 ${className}`}><div className="skeleton w-full h-full rounded-2xl" /></div>;
 }
 
 function BlogSkeleton() {
@@ -67,17 +51,11 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="bg-[var(--color-warm)]">
-      {/* ═══════════ HERO ═══════════ */}
+    <div>
+      {/* ═══ HERO — Sky Blue zone ═══ */}
       <section className="relative h-[92vh] min-h-[600px] flex items-end overflow-hidden">
-        <Image
-          src="/images/hero-banner.jpg"
-          alt="Nan Province"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+        <Image src="/images/hero-banner.jpg" alt="Nan Province" fill className="object-cover" priority />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-sky-dark)]/70 via-[var(--color-sky)]/15 to-transparent" />
 
         <div className="relative max-w-5xl mx-auto px-6 pb-24 w-full">
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-[1.08] mb-6 max-w-2xl">
@@ -87,26 +65,20 @@ export default function HomePage() {
             {t("home.hero.description")}
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link
-              href="/places"
-              className="bg-[var(--color-primary)] text-white font-semibold px-8 py-4 rounded-full hover:bg-[var(--color-primary-light)] transition-all"
-            >
+            <Link href="/places" className="bg-white text-[var(--color-sky-dark)] font-semibold px-8 py-4 rounded-full hover:shadow-lg transition-all">
               {t("home.hero.explorePlaces")}
             </Link>
-            <Link
-              href="/tours"
-              className="border border-white/30 text-white font-medium px-8 py-4 rounded-full hover:bg-white/10 transition-all"
-            >
+            <Link href="/tours" className="border border-white/30 text-white font-medium px-8 py-4 rounded-full hover:bg-white/10 transition-all">
               {t("home.hero.bookTour")}
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ═══════════ INTRO ═══════════ */}
-      <section className="bg-[var(--color-coral-tint)] py-24 md:py-32">
+      {/* ═══ INTRO — Sky Blue tint ═══ */}
+      <section className="bg-[var(--color-sky-tint)] py-24 md:py-32">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <div className="w-16 h-[3px] bg-[var(--color-primary)] mx-auto mb-10 rounded-full" />
+          <div className="w-16 h-[3px] bg-[var(--color-sky)] mx-auto mb-10 rounded-full" />
           <h2 className="text-2xl md:text-3xl font-bold mb-8 leading-snug">
             {t("home.intro.title")}
           </h2>
@@ -116,20 +88,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══════════ PLACES — Scrolling Carousel ═══════════ */}
-      <section className="py-24 md:py-32">
+      {/* ═══ PLACES — Transition to Forest Green ═══ */}
+      <section className="bg-[var(--color-forest-tint)] py-24 md:py-32">
         <div className="max-w-5xl mx-auto px-6 mb-12">
           <div className="flex items-end justify-between">
             <div>
-              <span className="inline-block bg-[var(--color-primary)] text-white text-xs font-semibold tracking-wider uppercase px-4 py-1.5 rounded-full mb-4">
+              <span className="inline-block bg-[var(--color-forest)] text-white text-xs font-semibold tracking-wider uppercase px-4 py-1.5 rounded-full mb-4">
                 {t("home.places.label")}
               </span>
               <h2 className="text-3xl md:text-4xl font-bold">{t("home.places.title")}</h2>
             </div>
-            <Link
-              href="/places"
-              className="hidden md:inline-block text-[var(--color-primary)] font-medium hover:underline underline-offset-4"
-            >
+            <Link href="/places" className="hidden md:inline-block text-[var(--color-forest)] font-medium hover:underline underline-offset-4">
               {t("home.places.viewAll")} &rarr;
             </Link>
           </div>
@@ -140,26 +109,16 @@ export default function HomePage() {
             <CardSkeleton className="w-[300px] md:w-[380px] h-80" />
             <CardSkeleton className="w-[300px] md:w-[380px] h-80" />
             <CardSkeleton className="w-[300px] md:w-[380px] h-80" />
-            <CardSkeleton className="w-[300px] md:w-[380px] h-80" />
           </div>
         ) : places.length > 0 ? (
           <div className="fade-in px-6">
-            <AutoScrollCarousel speed={0.4} resumeDelay={3000}>
+            <AutoScrollCarousel speed={0.4} resumeDelay={3000} arrowColor="var(--color-forest)">
               {places.map((place) => (
-                <Link
-                  key={place.id}
-                  href={`/places/${place.slug}`}
-                  className="group relative overflow-hidden rounded-2xl w-[300px] md:w-[380px] h-80 flex-shrink-0"
-                >
-                  <Image
-                    src={place.coverImage || "/images/village-placeholder.webp"}
-                    alt={localizedField(place, "name")}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
+                <Link key={place.id} href={`/places/${place.slug}`} className="group relative overflow-hidden rounded-2xl w-[300px] md:w-[380px] h-80 flex-shrink-0">
+                  <Image src={place.coverImage || "/images/village-placeholder.webp"} alt={localizedField(place, "name")} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/5 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-7">
-                    <span className="inline-block bg-[var(--color-accent)] text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full mb-3">
+                    <span className="inline-block bg-[var(--color-forest)]/90 text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full mb-3">
                       {t(`category.${place.category}` as Parameters<typeof t>[0])}
                     </span>
                     <h3 className="text-white text-xl font-bold group-hover:translate-x-1 transition-transform duration-300">
@@ -176,29 +135,22 @@ export default function HomePage() {
         ) : null}
 
         <div className="md:hidden text-center mt-10 px-6">
-          <Link href="/places" className="text-[var(--color-primary)] font-medium hover:underline">
-            {t("home.places.viewAll")} &rarr;
-          </Link>
+          <Link href="/places" className="text-[var(--color-forest)] font-medium hover:underline">{t("home.places.viewAll")} &rarr;</Link>
         </div>
       </section>
 
-      {/* ═══════════ ACTIVITIES — Scrolling Carousel ═══════════ */}
-      <section className="bg-[var(--color-orange-tint)] py-24 md:py-32">
+      {/* ═══ ACTIVITIES — Golden zone ═══ */}
+      <section className="bg-[var(--color-golden-tint)] py-24 md:py-32">
         <div className="max-w-5xl mx-auto px-6 mb-12">
           <div className="flex items-end justify-between">
             <div>
-              <span className="inline-block bg-[var(--color-accent)] text-white text-xs font-semibold tracking-wider uppercase px-4 py-1.5 rounded-full mb-4">
+              <span className="inline-block bg-[var(--color-golden-dark)] text-white text-xs font-semibold tracking-wider uppercase px-4 py-1.5 rounded-full mb-4">
                 {t("home.activities.label")}
               </span>
               <h2 className="text-3xl md:text-4xl font-bold">{t("home.activities.title")}</h2>
-              <p className="text-[var(--color-text-muted)] mt-3 max-w-lg leading-relaxed">
-                {t("home.activities.desc")}
-              </p>
+              <p className="text-[var(--color-text-muted)] mt-3 max-w-lg leading-relaxed">{t("home.activities.desc")}</p>
             </div>
-            <Link
-              href="/activities"
-              className="hidden md:inline-block text-[var(--color-accent)] font-medium hover:underline underline-offset-4"
-            >
+            <Link href="/activities" className="hidden md:inline-block text-[var(--color-golden-dark)] font-medium hover:underline underline-offset-4">
               {t("home.activities.viewAll")} &rarr;
             </Link>
           </div>
@@ -212,31 +164,16 @@ export default function HomePage() {
           </div>
         ) : activities.length > 0 ? (
           <div className="fade-in px-6">
-            <AutoScrollCarousel speed={0.35} resumeDelay={3000}>
+            <AutoScrollCarousel speed={0.35} resumeDelay={3000} arrowColor="var(--color-golden-dark)">
               {activities.map((activity) => (
-                <Link
-                  key={activity.id}
-                  href={`/activities/${activity.slug}`}
-                  className="group bg-white rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300 w-[280px] md:w-[340px] flex-shrink-0"
-                >
+                <Link key={activity.id} href={`/activities/${activity.slug}`} className="group bg-white rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300 w-[280px] md:w-[340px] flex-shrink-0">
                   <div className="relative h-52 overflow-hidden">
-                    <Image
-                      src={activity.coverImage || "/images/village-placeholder.webp"}
-                      alt={localizedField(activity, "name")}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
+                    <Image src={activity.coverImage || "/images/village-placeholder.webp"} alt={localizedField(activity, "name")} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                   </div>
-                  <div className="p-6 border-t-[3px] border-[var(--color-accent)]">
-                    <span className="text-[var(--color-accent)] text-xs font-semibold tracking-wider uppercase">
-                      {t("category.activity")}
-                    </span>
-                    <h3 className="font-bold text-lg mt-2 group-hover:text-[var(--color-primary)] transition-colors">
-                      {localizedField(activity, "name")}
-                    </h3>
-                    <p className="text-[var(--color-text-muted)] text-sm mt-2 line-clamp-2 leading-relaxed">
-                      {localizedField(activity, "description")}
-                    </p>
+                  <div className="p-6 border-t-[3px] border-[var(--color-golden)]">
+                    <span className="text-[var(--color-golden-dark)] text-xs font-semibold tracking-wider uppercase">{t("category.activity")}</span>
+                    <h3 className="font-bold text-lg mt-2 group-hover:text-[var(--color-forest)] transition-colors">{localizedField(activity, "name")}</h3>
+                    <p className="text-[var(--color-text-muted)] text-sm mt-2 line-clamp-2 leading-relaxed">{localizedField(activity, "description")}</p>
                   </div>
                 </Link>
               ))}
@@ -245,105 +182,57 @@ export default function HomePage() {
         ) : null}
 
         <div className="md:hidden text-center mt-10 px-6">
-          <Link href="/activities" className="text-[var(--color-accent)] font-medium hover:underline">
-            {t("home.activities.viewAll")} &rarr;
-          </Link>
+          <Link href="/activities" className="text-[var(--color-golden-dark)] font-medium hover:underline">{t("home.activities.viewAll")} &rarr;</Link>
         </div>
       </section>
 
-      {/* ═══════════ BLOG ═══════════ */}
+      {/* ═══ BLOG — Warm transition zone ═══ */}
       <section className="bg-white py-24 md:py-32">
         <div className="max-w-5xl mx-auto px-6">
           <div className="flex items-end justify-between mb-12">
             <div>
-              <span className="inline-block bg-[var(--color-lavender)] text-white text-xs font-semibold tracking-wider uppercase px-4 py-1.5 rounded-full mb-4">
+              <span className="inline-block bg-[var(--color-sky)] text-white text-xs font-semibold tracking-wider uppercase px-4 py-1.5 rounded-full mb-4">
                 {t("home.blog.label")}
               </span>
               <h2 className="text-3xl md:text-4xl font-bold">{t("home.blog.title")}</h2>
             </div>
-            <Link
-              href="/blog"
-              className="hidden md:inline-block text-[var(--color-lavender)] font-medium hover:underline underline-offset-4"
-            >
+            <Link href="/blog" className="hidden md:inline-block text-[var(--color-sky)] font-medium hover:underline underline-offset-4">
               {t("home.blog.readMore")} &rarr;
             </Link>
           </div>
 
-          {!loaded ? (
-            <BlogSkeleton />
-          ) : posts.length > 0 ? (
+          {!loaded ? <BlogSkeleton /> : posts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 fade-in">
               {posts.map((post, i) =>
                 i === 0 ? (
-                  <Link
-                    key={post.id}
-                    href={`/blog/${post.slug}`}
-                    className="group md:col-span-2 md:row-span-2 relative overflow-hidden rounded-2xl h-[24rem] md:h-full min-h-[22rem]"
-                  >
-                    <Image
-                      src={post.coverImage || "/images/village-placeholder.webp"}
-                      alt={localizedField(post, "title")}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
+                  <Link key={post.id} href={`/blog/${post.slug}`} className="group md:col-span-2 md:row-span-2 relative overflow-hidden rounded-2xl h-[24rem] md:h-full min-h-[22rem]">
+                    <Image src={post.coverImage || "/images/village-placeholder.webp"} alt={localizedField(post, "title")} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">
                       <div className="flex items-center gap-3 mb-3">
-                        <span className="bg-[var(--color-lavender)] text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full">
-                          {post.category}
-                        </span>
-                        <time className="text-white/50 text-xs">
-                          {new Date(post.createdAt).toLocaleDateString("en-US", {
-                            month: "short",
-                            day: "numeric",
-                            year: "numeric",
-                          })}
-                        </time>
+                        <span className="bg-[var(--color-sky)] text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full">{post.category}</span>
+                        <time className="text-white/50 text-xs">{new Date(post.createdAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</time>
                       </div>
-                      <h3 className="text-white text-2xl md:text-3xl font-bold leading-snug mb-3 max-w-lg">
-                        {localizedField(post, "title")}
-                      </h3>
-                      <p className="text-white/70 line-clamp-2 max-w-md leading-relaxed">
-                        {localizedField(post, "excerpt")}
-                      </p>
-                      <span className="inline-block text-white/70 text-sm font-medium mt-5 group-hover:text-white transition-colors">
-                        {t("home.blog.readArticle")} &rarr;
-                      </span>
+                      <h3 className="text-white text-2xl md:text-3xl font-bold leading-snug mb-3 max-w-lg">{localizedField(post, "title")}</h3>
+                      <p className="text-white/70 line-clamp-2 max-w-md leading-relaxed">{localizedField(post, "excerpt")}</p>
+                      <span className="inline-block text-white/70 text-sm font-medium mt-5 group-hover:text-white transition-colors">{t("home.blog.readArticle")} &rarr;</span>
                     </div>
                   </Link>
                 ) : (
                   <Link key={post.id} href={`/blog/${post.slug}`} className="group">
                     <article className="bg-[var(--color-warm)] rounded-2xl overflow-hidden hover:shadow-md transition-all duration-300 h-full flex flex-col">
                       <div className="relative h-44 overflow-hidden">
-                        <Image
-                          src={post.coverImage || "/images/village-placeholder.webp"}
-                          alt={localizedField(post, "title")}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
+                        <Image src={post.coverImage || "/images/village-placeholder.webp"} alt={localizedField(post, "title")} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                       </div>
-                      <div className="p-5 flex-1 flex flex-col border-t-[3px] border-[var(--color-lavender)]">
+                      <div className="p-5 flex-1 flex flex-col border-t-[3px] border-[var(--color-sky)]">
                         <div className="flex items-center gap-3 mb-2">
-                          <span className="text-[var(--color-lavender)] text-xs font-semibold tracking-wider uppercase">
-                            {post.category}
-                          </span>
+                          <span className="text-[var(--color-sky)] text-xs font-semibold tracking-wider uppercase">{post.category}</span>
                           <span className="text-gray-300">|</span>
-                          <time className="text-[var(--color-text-muted)] text-xs">
-                            {new Date(post.createdAt).toLocaleDateString("en-US", {
-                              month: "short",
-                              day: "numeric",
-                            })}
-                          </time>
+                          <time className="text-[var(--color-text-muted)] text-xs">{new Date(post.createdAt).toLocaleDateString("en-US", { month: "short", day: "numeric" })}</time>
                         </div>
-                        <h3 className="font-bold text-lg leading-snug group-hover:text-[var(--color-primary)] transition-colors mb-2">
-                          {localizedField(post, "title")}
-                        </h3>
-                        <p className="text-[var(--color-text-muted)] text-sm flex-1 line-clamp-2 leading-relaxed">
-                          {localizedField(post, "excerpt")}
-                        </p>
-                        <span className="text-[var(--color-primary)] text-sm font-medium mt-4 group-hover:underline underline-offset-4">
-                          {t("home.blog.readArticle")} &rarr;
-                        </span>
+                        <h3 className="font-bold text-lg leading-snug group-hover:text-[var(--color-sky)] transition-colors mb-2">{localizedField(post, "title")}</h3>
+                        <p className="text-[var(--color-text-muted)] text-sm flex-1 line-clamp-2 leading-relaxed">{localizedField(post, "excerpt")}</p>
+                        <span className="text-[var(--color-sky)] text-sm font-medium mt-4 group-hover:underline underline-offset-4">{t("home.blog.readArticle")} &rarr;</span>
                       </div>
                     </article>
                   </Link>
@@ -353,56 +242,35 @@ export default function HomePage() {
           ) : null}
 
           <div className="md:hidden text-center mt-10">
-            <Link href="/blog" className="text-[var(--color-lavender)] font-medium hover:underline">
-              {t("home.blog.readMore")} &rarr;
-            </Link>
+            <Link href="/blog" className="text-[var(--color-sky)] font-medium hover:underline">{t("home.blog.readMore")} &rarr;</Link>
           </div>
         </div>
       </section>
 
-      {/* ═══════════ IMAGE BREAK ═══════════ */}
+      {/* ═══ IMAGE BREAK ═══ */}
       <section className="relative h-80 md:h-[30rem] overflow-hidden">
-        <Image
-          src="/images/village-placeholder.webp"
-          alt="Life in Nan"
-          fill
-          className="object-cover"
-        />
+        <Image src="/images/village-placeholder.webp" alt="Life in Nan" fill className="object-cover" />
         <div className="absolute inset-0 bg-black/25" />
         <div className="absolute inset-0 flex items-center justify-center text-center px-6">
           <div>
-            <p className="text-white/60 text-sm tracking-[0.3em] uppercase mb-5">
-              {t("home.break.label")}
-            </p>
-            <h2 className="text-3xl md:text-5xl font-bold text-white max-w-md leading-snug">
-              {t("home.break.title")}
-            </h2>
+            <p className="text-white/60 text-sm tracking-[0.3em] uppercase mb-5">{t("home.break.label")}</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-white max-w-md leading-snug">{t("home.break.title")}</h2>
           </div>
         </div>
       </section>
 
-      {/* ═══════════ CTA ═══════════ */}
-      <section className="relative py-28 md:py-36 overflow-hidden bg-[var(--color-primary)]">
+      {/* ═══ CTA — Sunset Orange zone ═══ */}
+      <section className="relative py-28 md:py-36 overflow-hidden bg-gradient-to-br from-[var(--color-sunset)] to-[var(--color-sunset-dark)]">
         <Image src="/images/hero-banner.jpg" alt="" fill className="object-cover opacity-10" />
         <div className="relative max-w-3xl mx-auto px-6 text-center">
           <div className="w-16 h-[3px] bg-white/30 mx-auto mb-10 rounded-full" />
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-snug">
-            {t("home.cta.title")}
-          </h2>
-          <p className="text-white/70 mb-12 max-w-xl mx-auto text-lg leading-[1.8]">
-            {t("home.cta.desc")}
-          </p>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-snug">{t("home.cta.title")}</h2>
+          <p className="text-white/75 mb-12 max-w-xl mx-auto text-lg leading-[1.8]">{t("home.cta.desc")}</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="/tours"
-              className="bg-white text-[var(--color-primary-dark)] font-semibold px-9 py-4 rounded-full hover:shadow-lg transition-all"
-            >
+            <Link href="/tours" className="bg-white text-[var(--color-sunset-dark)] font-semibold px-9 py-4 rounded-full hover:shadow-lg transition-all">
               {t("home.cta.viewTours")}
             </Link>
-            <Link
-              href="/contact"
-              className="border border-white/30 text-white font-medium px-9 py-4 rounded-full hover:bg-white/10 transition-all"
-            >
+            <Link href="/contact" className="border border-white/30 text-white font-medium px-9 py-4 rounded-full hover:bg-white/10 transition-all">
               {t("home.cta.getInTouch")}
             </Link>
           </div>

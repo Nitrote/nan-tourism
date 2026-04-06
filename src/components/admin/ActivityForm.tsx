@@ -85,7 +85,7 @@ export default function ActivityForm({ activity }: { activity?: Activity }) {
                 if (slugInput) slugInput.value = slugify(e.target.value);
               }
             }}
-            className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none"
+            className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none"
           />
         </div>
         <div>
@@ -94,7 +94,7 @@ export default function ActivityForm({ activity }: { activity?: Activity }) {
             type="text"
             name="nameTh"
             defaultValue={activity?.nameTh}
-            className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none"
+            className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none"
           />
         </div>
       </div>
@@ -106,7 +106,7 @@ export default function ActivityForm({ activity }: { activity?: Activity }) {
           name="slug"
           required
           defaultValue={activity?.slug}
-          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none font-mono text-sm"
+          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none font-mono text-sm"
         />
       </div>
 
@@ -117,7 +117,7 @@ export default function ActivityForm({ activity }: { activity?: Activity }) {
           rows={5}
           required
           defaultValue={activity?.description}
-          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none"
+          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none"
         />
       </div>
 
@@ -127,7 +127,7 @@ export default function ActivityForm({ activity }: { activity?: Activity }) {
           name="descriptionTh"
           rows={5}
           defaultValue={activity?.descriptionTh}
-          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none"
+          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none"
         />
       </div>
 
@@ -138,29 +138,29 @@ export default function ActivityForm({ activity }: { activity?: Activity }) {
           name="coverImage"
           defaultValue={activity?.coverImage}
           placeholder="https://example.com/image.jpg or /images/photo.jpg"
-          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none"
+          className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none"
         />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Address (English)</label>
-          <input type="text" name="address" defaultValue={activity?.address} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none" />
+          <input type="text" name="address" defaultValue={activity?.address} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none" />
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Address (Thai)</label>
-          <input type="text" name="addressTh" defaultValue={activity?.addressTh} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none" />
+          <input type="text" name="addressTh" defaultValue={activity?.addressTh} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none" />
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Latitude</label>
-          <input type="number" name="latitude" step="any" defaultValue={activity?.latitude ?? ""} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none" />
+          <input type="number" name="latitude" step="any" defaultValue={activity?.latitude ?? ""} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none" />
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Longitude</label>
-          <input type="number" name="longitude" step="any" defaultValue={activity?.longitude ?? ""} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none" />
+          <input type="number" name="longitude" step="any" defaultValue={activity?.longitude ?? ""} className="w-full px-4 py-2.5 border rounded-lg focus:ring-2 focus:ring-[var(--color-forest)] focus:border-transparent outline-none" />
         </div>
       </div>
 
@@ -170,7 +170,7 @@ export default function ActivityForm({ activity }: { activity?: Activity }) {
       </div>
 
       <div className="flex gap-3 pt-4">
-        <button type="submit" disabled={saving} className="bg-[var(--color-primary)] text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-[var(--color-primary-light)] transition-colors disabled:opacity-50">
+        <button type="submit" disabled={saving} className="bg-[var(--color-forest)] text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-[var(--color-forest-light)] transition-colors disabled:opacity-50">
           {saving ? "Saving..." : activity ? "Update Activity" : "Create Activity"}
         </button>
         <button type="button" onClick={() => router.back()} className="px-6 py-2.5 border rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">

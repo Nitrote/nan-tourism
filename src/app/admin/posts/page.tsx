@@ -14,7 +14,7 @@ export default async function AdminPostsPage() {
         <h1 className="text-2xl font-bold">Blog Posts</h1>
         <Link
           href="/admin/posts/new"
-          className="bg-[var(--color-primary)] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[var(--color-primary-light)] transition-colors"
+          className="bg-[var(--color-forest)] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[var(--color-forest-light)] transition-colors"
         >
           + New Post
         </Link>
@@ -47,7 +47,7 @@ export default async function AdminPostsPage() {
                 <td className="px-5 py-3">
                   <Link
                     href={`/admin/posts/${post.id}`}
-                    className="font-medium text-sm hover:text-[var(--color-primary)]"
+                    className="font-medium text-sm hover:text-[var(--color-forest)]"
                   >
                     {post.title}
                   </Link>

@@ -13,7 +13,7 @@ export default async function AdminPlacesPage() {
         <h1 className="text-2xl font-bold">Places</h1>
         <Link
           href="/admin/places/new"
-          className="bg-[var(--color-primary)] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[var(--color-primary-light)] transition-colors"
+          className="bg-[var(--color-forest)] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[var(--color-forest-light)] transition-colors"
         >
           + New Place
         </Link>
@@ -33,7 +33,7 @@ export default async function AdminPlacesPage() {
             {places.map((place) => (
               <tr key={place.id} className="hover:bg-gray-50">
                 <td className="px-5 py-3">
-                  <Link href={`/admin/places/${place.id}`} className="font-medium text-sm hover:text-[var(--color-primary)]">
+                  <Link href={`/admin/places/${place.id}`} className="font-medium text-sm hover:text-[var(--color-forest)]">
                     {place.name}
                   </Link>
                 </td>

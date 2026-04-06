@@ -1,42 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  /* Way Back Home — saturated palette from mood board */
-  --color-primary: #E85C3A;
-  --color-primary-light: #F07858;
-  --color-primary-dark: #C44A2E;
-  --color-accent: #F0A020;
-  --color-accent-light: #F0C850;
-  --color-warm: #FFF8F2;
-  --color-warm-dark: #F2E8D8;
-  --color-lavender: #8E6DAE;
-  --color-text: #2D2A26;
-  --color-text-muted: #6B6560;
+  /* Way Back Home — four-color palette */
+  --color-sky: #457B9D;
+  --color-sky-light: #5A9BBD;
+  --color-sky-dark: #2D5F7D;
+  --color-forest: #2A9D8F;
+  --color-forest-light: #3DB8A8;
+  --color-forest-dark: #1E7A6E;
+  --color-golden: #FFD300;
+  --color-golden-light: #FFE04A;
+  --color-golden-dark: #E0B800;
+  --color-sunset: #FF006E;
+  --color-sunset-light: #FF3D8E;
+  --color-sunset-dark: #D40058;
 
   /* Tint backgrounds */
-  --color-coral-tint: #FDE8E2;
-  --color-orange-tint: #FDF0D8;
-  --color-yellow-tint: #FDF5D0;
-  --color-lavender-tint: #F0EAF5;
+  --color-sky-tint: #EAF2F7;
+  --color-forest-tint: #E6F5F3;
+  --color-golden-tint: #FFF9D6;
+  --color-sunset-tint: #FFE0EE;
+
+  /* Neutrals */
+  --color-warm: #FAFAF8;
+  --color-warm-dark: #F0EDE8;
+  --color-text: #1A1A1A;
+  --color-text-muted: #5A5A5A;
 }
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-primary: var(--color-primary);
-  --color-primary-light: var(--color-primary-light);
-  --color-primary-dark: var(--color-primary-dark);
-  --color-accent: var(--color-accent);
-  --color-accent-light: var(--color-accent-light);
+  --color-sky: var(--color-sky);
+  --color-sky-light: var(--color-sky-light);
+  --color-sky-dark: var(--color-sky-dark);
+  --color-forest: var(--color-forest);
+  --color-forest-light: var(--color-forest-light);
+  --color-forest-dark: var(--color-forest-dark);
+  --color-golden: var(--color-golden);
+  --color-golden-light: var(--color-golden-light);
+  --color-golden-dark: var(--color-golden-dark);
+  --color-sunset: var(--color-sunset);
+  --color-sunset-light: var(--color-sunset-light);
+  --color-sunset-dark: var(--color-sunset-dark);
+  --color-sky-tint: var(--color-sky-tint);
+  --color-forest-tint: var(--color-forest-tint);
+  --color-golden-tint: var(--color-golden-tint);
+  --color-sunset-tint: var(--color-sunset-tint);
   --color-warm: var(--color-warm);
   --color-warm-dark: var(--color-warm-dark);
-  --color-lavender: var(--color-lavender);
   --color-text: var(--color-text);
   --color-text-muted: var(--color-text-muted);
-  --color-coral-tint: var(--color-coral-tint);
-  --color-orange-tint: var(--color-orange-tint);
-  --color-yellow-tint: var(--color-yellow-tint);
-  --color-lavender-tint: var(--color-lavender-tint);
 }
 
 body {
@@ -49,25 +63,20 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Skeleton shimmer for loading states */
+/* Skeleton shimmer */
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
 
 .skeleton {
-  background: linear-gradient(
-    90deg,
-    var(--color-warm-dark) 25%,
-    #f5efe5 37%,
-    var(--color-warm-dark) 63%
-  );
+  background: linear-gradient(90deg, var(--color-warm-dark) 25%, #f5f2ed 37%, var(--color-warm-dark) 63%);
   background-size: 200% 100%;
   animation: shimmer 1.8s ease-in-out infinite;
   border-radius: 12px;
 }
 
-/* Fade-in for loaded content */
+/* Fade-in */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
@@ -75,31 +84,6 @@ html {
 
 .fade-in {
   animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Carousel scrollbar styling */
-.carousel-scroll::-webkit-scrollbar {
-  height: 6px;
-}
-
-.carousel-scroll::-webkit-scrollbar-track {
-  background: var(--color-warm-dark);
-  border-radius: 3px;
-}
-
-.carousel-scroll::-webkit-scrollbar-thumb {
-  background: var(--color-primary-light);
-  border-radius: 3px;
-}
-
-.carousel-scroll::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
-}
-
-/* Firefox scrollbar */
-.carousel-scroll {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-primary-light) var(--color-warm-dark);
 }
 
 @media (prefers-reduced-motion: reduce) {

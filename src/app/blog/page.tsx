@@ -40,10 +40,10 @@ export default function BlogPage() {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-        <div className="absolute inset-0 bg-amber-900/10 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[var(--color-sky-dark)]/10 mix-blend-multiply" />
 
         <div className="relative max-w-6xl mx-auto px-6 pb-14 w-full">
-          <p className="text-amber-200/90 text-sm tracking-[0.3em] uppercase mb-3 font-medium">
+          <p className="text-[var(--color-sky-light)]/90 text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Stories
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 max-w-2xl">
@@ -87,7 +87,7 @@ export default function BlogPage() {
                   </div>
                   <div className="p-6 flex-1 flex flex-col">
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="inline-block bg-[var(--color-lavender)] text-white text-xs font-medium tracking-wider uppercase px-3 py-1 rounded-full">
+                      <span className="inline-block bg-[var(--color-sky)] text-white text-xs font-medium tracking-wider uppercase px-3 py-1 rounded-full">
                         {post.category}
                       </span>
                       <span className="text-gray-300">|</span>
@@ -100,7 +100,7 @@ export default function BlogPage() {
                       </time>
                     </div>
                     <h2
-                      className={`font-bold group-hover:text-[var(--color-primary)] transition-colors leading-snug ${
+                      className={`font-bold group-hover:text-[var(--color-sky)] transition-colors leading-snug ${
                         i === 0 ? "text-2xl mb-3" : "text-lg mb-2"
                       }`}
                     >
@@ -115,7 +115,7 @@ export default function BlogPage() {
                     </p>
                     <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100 text-xs text-[var(--color-text-muted)]">
                       <span>{t("blog.by")} {post.author.name}</span>
-                      <span className="inline-block bg-[var(--color-lavender-tint)] text-[var(--color-lavender)] font-medium px-3 py-1 rounded-full group-hover:bg-[var(--color-lavender)] group-hover:text-white transition-colors">
+                      <span className="inline-block bg-[var(--color-sky-tint)] text-[var(--color-sky)] font-medium px-3 py-1 rounded-full group-hover:bg-[var(--color-sky)] group-hover:text-white transition-colors">
                         Read more &rarr;
                       </span>
                     </div>

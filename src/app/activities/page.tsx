@@ -39,10 +39,10 @@ export default function ActivitiesPage() {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-        <div className="absolute inset-0 bg-amber-900/10 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[var(--color-golden-dark)]/10 mix-blend-multiply" />
 
         <div className="relative max-w-6xl mx-auto px-6 pb-14 w-full">
-          <p className="text-amber-200/90 text-sm tracking-[0.3em] uppercase mb-3 font-medium">
+          <p className="text-[var(--color-golden-light)]/90 text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Experience
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 max-w-2xl">
@@ -55,7 +55,7 @@ export default function ActivitiesPage() {
       </section>
 
       {/* Activity Cards */}
-      <div className="max-w-6xl mx-auto px-6 py-20 bg-[var(--color-orange-tint)] rounded-3xl my-8">
+      <div className="max-w-6xl mx-auto px-6 py-20 bg-[var(--color-golden-tint)] rounded-3xl my-8">
         {activities.length === 0 ? (
           <p className="text-center text-[var(--color-text-muted)] py-12">
             {t("activities.empty")}
@@ -66,7 +66,7 @@ export default function ActivitiesPage() {
               <Link
                 key={activity.id}
                 href={`/activities/${activity.slug}`}
-                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border-t-[3px] border-[var(--color-accent)]"
+                className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border-t-[3px] border-[var(--color-golden)]"
               >
                 <div className="relative h-52 overflow-hidden">
                   {activity.coverImage ? (
@@ -86,10 +86,10 @@ export default function ActivitiesPage() {
                   )}
                 </div>
                 <div className="p-5">
-                  <span className="inline-block bg-[var(--color-accent)] text-white text-xs font-medium tracking-wider uppercase px-3 py-1 rounded-full">
+                  <span className="inline-block bg-[var(--color-golden)] text-white text-xs font-medium tracking-wider uppercase px-3 py-1 rounded-full">
                     {t("category.activity")}
                   </span>
-                  <h3 className="font-bold text-lg mt-1 group-hover:text-[var(--color-primary)] transition-colors">
+                  <h3 className="font-bold text-lg mt-1 group-hover:text-[var(--color-golden-dark)] transition-colors">
                     {localizedField(activity, "name")}
                   </h3>
                   <p className="text-[var(--color-text-muted)] text-sm mt-2 line-clamp-2">

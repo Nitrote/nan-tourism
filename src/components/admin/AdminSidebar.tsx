@@ -33,7 +33,7 @@ export default function AdminSidebar() {
               href={link.href}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium mb-1 transition-colors ${
                 isActive
-                  ? "bg-green-50 text-[var(--color-primary)]"
+                  ? "bg-green-50 text-[var(--color-forest)]"
                   : "text-gray-600 hover:bg-gray-50"
               }`}
             >

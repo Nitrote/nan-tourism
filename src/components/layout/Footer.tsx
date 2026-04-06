@@ -7,7 +7,7 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-[var(--color-primary-dark)] text-white/70">
+    <footer className="bg-[var(--color-sky-dark)] text-white/70">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2">

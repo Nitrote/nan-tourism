@@ -50,7 +50,7 @@ export default async function AdminDashboard() {
       <div className="flex gap-3 mb-8">
         <Link
           href="/admin/posts/new"
-          className="bg-[var(--color-primary)] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[var(--color-primary-light)] transition-colors"
+          className="bg-[var(--color-forest)] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[var(--color-forest-light)] transition-colors"
         >
           + New Post
         </Link>

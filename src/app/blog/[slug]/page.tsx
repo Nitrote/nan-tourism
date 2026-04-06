@@ -56,7 +56,7 @@ export default function BlogPostPage() {
             &larr; {t("blog.backToBlog")}
           </Link>
           <div className="flex items-center gap-3 mb-3">
-            <span className="inline-block bg-[var(--color-lavender)] text-white text-xs font-medium tracking-wider uppercase px-3 py-1.5 rounded-full">
+            <span className="inline-block bg-[var(--color-sky)] text-white text-xs font-medium tracking-wider uppercase px-3 py-1.5 rounded-full">
               {post.category}
             </span>
           </div>
@@ -74,7 +74,7 @@ export default function BlogPostPage() {
       {/* Article Content */}
       <article className="max-w-3xl mx-auto px-6 py-16">
         <div
-          className="prose prose-lg max-w-none prose-headings:text-[var(--color-text)] prose-p:text-[var(--color-text-muted)] prose-a:text-[var(--color-primary)] prose-strong:text-[var(--color-text)]"
+          className="prose prose-lg max-w-none prose-headings:text-[var(--color-text)] prose-p:text-[var(--color-text-muted)] prose-a:text-[var(--color-sky)] prose-strong:text-[var(--color-text)]"
           dangerouslySetInnerHTML={{ __html: content }}
         />
         {post.tags && (
@@ -82,7 +82,7 @@ export default function BlogPostPage() {
             {post.tags.split(",").map((tag) => (
               <span
                 key={tag}
-                className="bg-[var(--color-coral-tint)] text-[var(--color-primary)] text-xs font-medium px-4 py-1.5 rounded-full"
+                className="bg-[var(--color-sky-tint)] text-[var(--color-sky)] text-xs font-medium px-4 py-1.5 rounded-full"
               >
                 {tag.trim()}
               </span>

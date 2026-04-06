@@ -66,10 +66,10 @@ export default function ToursPage() {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-        <div className="absolute inset-0 bg-amber-900/10 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-[var(--color-sunset)]/10 mix-blend-multiply" />
 
         <div className="relative max-w-6xl mx-auto px-6 pb-14 w-full">
-          <p className="text-amber-200/90 text-sm tracking-[0.3em] uppercase mb-3 font-medium">
+          <p className="text-[var(--color-golden-light)]/90 text-sm tracking-[0.3em] uppercase mb-3 font-medium">
             Curated Experiences
           </p>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 max-w-2xl">
@@ -84,7 +84,7 @@ export default function ToursPage() {
       {/* Tour Packages */}
       <div className="max-w-6xl mx-auto px-6 py-20">
         <div className="mb-10">
-          <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
+          <p className="text-[var(--color-sunset)] text-sm tracking-[0.2em] uppercase font-medium mb-2">
             Packages
           </p>
           <h2 className="text-2xl md:text-3xl font-bold">{t("tours.packages")}</h2>
@@ -94,15 +94,15 @@ export default function ToursPage() {
           {tourPackages.map((tour) => (
             <div
               key={tour.title}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group border-t-[3px] border-[var(--color-primary)]"
+              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 group border-t-[3px] border-[var(--color-sunset)]"
             >
               <div className="bg-gradient-to-br from-[var(--color-warm-dark)] to-[var(--color-warm)] h-36 flex items-center justify-center">
-                <div className="w-4 h-4 rounded-full bg-[var(--color-primary)] group-hover:scale-110 transition-transform duration-300" />
+                <div className="w-4 h-4 rounded-full bg-[var(--color-sunset)] group-hover:scale-110 transition-transform duration-300" />
               </div>
               <div className="p-6">
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <h3 className="font-bold text-xl">{tour.title}</h3>
-                  <span className="text-xs font-medium text-[var(--color-primary)] bg-[var(--color-coral-tint)] px-3 py-1 rounded-full whitespace-nowrap">
+                  <span className="text-xs font-medium text-[var(--color-sunset)] bg-[var(--color-sky-tint)] px-3 py-1 rounded-full whitespace-nowrap">
                     {tour.duration}
                   </span>
                 </div>
@@ -112,7 +112,7 @@ export default function ToursPage() {
                 <ul className="space-y-2">
                   {tour.highlights.map((h) => (
                     <li key={h} className="text-sm text-[var(--color-text)] flex items-center gap-2">
-                      <span className="text-[var(--color-primary)] text-xs">&#10003;</span> {h}
+                      <span className="text-[var(--color-sunset)] text-xs">&#10003;</span> {h}
                     </li>
                   ))}
                 </ul>
@@ -123,10 +123,10 @@ export default function ToursPage() {
       </div>
 
       {/* Business Section */}
-      <section className="bg-[var(--color-lavender-tint)] py-20">
+      <section className="bg-[var(--color-sky-tint)] py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-[var(--color-accent)] text-sm tracking-[0.2em] uppercase font-medium mb-3">
+            <p className="text-[var(--color-sunset)] text-sm tracking-[0.2em] uppercase font-medium mb-3">
               Partnership
             </p>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">{t("tours.business.title")}</h2>
@@ -135,7 +135,7 @@ export default function ToursPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block bg-[var(--color-primary)] text-white font-semibold px-8 py-3.5 rounded-full hover:bg-[var(--color-primary-light)] transition-colors"
+              className="inline-block bg-[var(--color-sunset)] text-white font-semibold px-8 py-3.5 rounded-full hover:bg-[var(--color-sunset)]/80 transition-colors"
             >
               {t("tours.business.cta")}
             </Link>
@@ -145,7 +145,7 @@ export default function ToursPage() {
 
       {/* CTA */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[var(--color-primary)]" />
+        <div className="absolute inset-0 bg-[var(--color-sunset)]" />
         <Image
           src="/images/village-placeholder.webp"
           alt=""
@@ -153,7 +153,7 @@ export default function ToursPage() {
           className="object-cover opacity-20"
         />
         <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <p className="text-amber-200/80 text-sm tracking-[0.25em] uppercase font-medium mb-4">
+          <p className="text-[var(--color-golden-light)]/80 text-sm tracking-[0.25em] uppercase font-medium mb-4">
             Ready to explore?
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-5 leading-snug">
@@ -164,7 +164,7 @@ export default function ToursPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-[var(--color-accent)] text-white font-semibold px-8 py-3.5 rounded-full hover:bg-[var(--color-accent-light)] transition-all hover:shadow-lg"
+            className="inline-block bg-[var(--color-golden)] text-white font-semibold px-8 py-3.5 rounded-full hover:bg-[var(--color-golden-light)] transition-all hover:shadow-lg"
           >
             {t("tours.cta.contact")}
           </Link>
